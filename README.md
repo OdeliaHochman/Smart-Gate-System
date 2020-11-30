@@ -1,4 +1,4 @@
-# Smart Gate System  <img src="Images/logo.JPG" width="100" height="100" >
+# Smart Gate System  
 
 
 **Created by:**
