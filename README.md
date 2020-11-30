@@ -1,5 +1,7 @@
 # Smart Gate System  
 
+Final academic project at Ariel University 2021.
+
 **Created by:**
 
 [Odelia Hochman](https://github.com/OdeliaHochman)
