@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/title-DDV"
+        android:layout_width="721dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="38dp"
+        android:fontFamily="@font/trade_winds"
+        android:text="Driver's Details Verification"
+        android:textColor="@color/green"
+        android:textSize="45sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/firstName-DDV"
+        android:layout_width="175dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="4dp"
+        android:text="First Name"
+        android:textColor="@color/green"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/firstName_editTxt-DDV"
+        app:layout_constraintEnd_toStartOf="@+id/IDNumber-DDV"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title-DDV" />
+
+    <EditText
+        android:id="@+id/firstName_editTxt-DDV"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/gray"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="175dp" />
+
+    <TextView
+        android:id="@+id/lastName-DDV"
+        android:layout_width="175dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="64dp"
+        android:text="Last Name"
+        android:textColor="@color/green"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/lastName_editTxt-DDV"
+        app:layout_constraintEnd_toStartOf="@+id/LPNumber-DDV" />
+
+    <EditText
+        android:id="@+id/lastName_editTxt-DDV"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/gray"
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="278dp" />
+
+
+    <TextView
+        android:id="@+id/IDNumber-DDV"
+        android:layout_width="175dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginBottom="5dp"
+        android:text="ID Number"
+        android:textColor="@color/green"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/IDNumber_editTxt-DDV"
+        app:layout_constraintTop_toBottomOf="@+id/title-DDV"
+        tools:layout_editor_absoluteX="288dp" />
+
+
+    <EditText
+        android:id="@+id/IDNumber_editTxt-DDV"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/gray"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="288dp"
+        tools:layout_editor_absoluteY="174dp" />
+
+    <TextView
+        android:id="@+id/LPNumber-DDV"
+        android:layout_width="265dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="176dp"
+        android:text="License Plate Number"
+        android:textColor="@color/green"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/LPNumber_editTxt-DDV"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/LPNumber_editTxt-DDV"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/gray"
+        tools:layout_editor_absoluteX="288dp"
+        tools:layout_editor_absoluteY="278dp" />
+
+    <TextView
+        android:id="@+id/employeeNumber-DDV"
+        android:layout_width="215dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginBottom="19dp"
+        android:text="Employee Number"
+        android:textColor="@color/green"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/employeeNumber_editTxt-DDV"
+        app:layout_constraintStart_toStartOf="@+id/IDNumber-DDV"
+        app:layout_constraintTop_toBottomOf="@+id/title-DDV" />
+
+    <EditText
+        android:id="@+id/employeeNumber_editTxt-DDV"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/gray_dark"
+        tools:layout_editor_absoluteX="513dp"
+        tools:layout_editor_absoluteY="174dp" />
+
+    <Button
+        android:id="@+id/ok_btn-DDV"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="593dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="27dp"
+        android:background="@color/gray"
+        android:text="Ok"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/employeeNumber_editTxt-DDV" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

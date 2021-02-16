@@ -7,6 +7,6 @@
     <color name="green">#73FF37</color>
     <color name="gray">#ededed</color>
     <color name="white">#ffffff</color>
-
+    <color name="gray_dark">#bdb8bd</color>
 
 </resources>
