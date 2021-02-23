@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "981695082072",
+    "project_id": "smart-gate-5414b",
+    "storage_bucket": "smart-gate-5414b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981695082072:android:35931b8ac2e555c2d5a42d",
+        "android_client_info": {
+          "package_name": "com.example.smartgate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981695082072-b9ckljq9akf5q20cssc4b3qvne3f8q3g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxWliYCYyZVIgKDIcGDq-brjrgcGQmynE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "981695082072-b9ckljq9akf5q20cssc4b3qvne3f8q3g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
