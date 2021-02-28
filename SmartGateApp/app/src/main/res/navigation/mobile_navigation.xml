@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/Home_page">
+
+    <fragment
+        android:id="@+id/Home_page"
+        android:name="com.example.smartgate.Main"
+        android:label="Home"
+        tools:layout="@layout/activity_mainn" />
+    <fragment
+        android:id="@+id/Driver_information_verification_page"
+        android:name="com.example.smartgate.DriversDetailsVerification"
+        android:label="Driver information verification"
+        tools:layout="@layout/activity_drivers_details_verification" />
+
+    <fragment
+        android:id="@+id/Personal_Information_page"
+        android:name="com.example.smartgate.PersonalInformation"
+        android:label="Personal Information"
+        tools:layout="@layout/activity_personal_information" />
+
+
+</navigation>
