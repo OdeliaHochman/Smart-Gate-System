@@ -1,4 +1,4 @@
-<img src="Images/ariel.logo.JPG" width="200" height="100" >
+<img src="Images/ariel_logo.JPG" width="200" height="100" >
 
 # Smart Gate System  
 
