@@ -15,10 +15,11 @@ Final academic project at Ariel University 2021.
 
 ## Motivation
 
-For many employees who come to their employee parking lot, searching for parking has become a difficult task as unauthorized people park there. 
+Nowadays there are common visitors entry systems based on license plate identification access only like in civilian places such as malls and hospitals,
+but this condition is not sufficient for entering secured places where we need also to identify the entering person himself.
 
-To solve this problem, we decided to develop a system of smart gate called "Smart Gate" which will open the barrier automatically only to authorized people
-by using face recognition and license plate recognition algorithms.
+To this end, we have developed an automatic visitor system that tightens the rules for entering the area.
+To approve entry for a potential visitor, both the license plate of his vehicle and his facial features are checked while cross-referencing with the data in the database.
 
 This system saves on security costs because the guard can monitor multiple parking lots simultaneously using an app that allows him to track in real-time who enters the parking lot and easily handle cases where the system fails to identify the employee.
 
