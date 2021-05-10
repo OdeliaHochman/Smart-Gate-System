@@ -15,12 +15,13 @@ Final academic project at Ariel University 2021.
 
 ## Motivation
 
-Nowadays there are common visitors entry systems based on license plate identification access only like in civilian places such as malls and hospitals,
-but this condition is not sufficient for entering secured places where we need also to identify the entering person himself.
+Nowadays there are lot of visitors controlling systems that are based on license plate recognition such as exist in malls and hotels.
+But when dealing with secured areas as like defense industry military base etc, the above method is insufficient, because it lets a car thieve or a terrorist who stole licensed car, to enter the secured area easily.
 
-To this end, we have developed an automatic visitor system that tightens the rules for entering the area.
-To approve entry for a potential visitor, both the license plate of his vehicle and his facial features are checked while cross-referencing with the data in the database.
+Due to that, we’ve developed the S.G system, that not only identifies the license plate but also Identifies the entering visitors face.
+Such an automatic system allows the human guard doing other tasks such as phone calls answer, filling security reports etc.
+The human guard rarely has to manage the visitor entry manually only in case when the automatic system fails to recognize the license plate of the car or the entering person.
 
-This system saves on security costs because the guard can monitor multiple parking lots simultaneously using an app that allows him to track in real-time who enters the parking lot and easily handle cases where the system fails to identify the employee.
+
 
 
