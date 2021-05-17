@@ -23,5 +23,6 @@ Such an automatic system allows the human guard doing other tasks such as phone 
 The human guard rarely has to manage the visitor entry manually only in case when the automatic system fails to recognize the license plate of the car or the entering person.
 
 
+## Poster
 
-
+<img src="Documents/Poster.JPG" >
