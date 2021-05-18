@@ -125,7 +125,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 startActivity(new Intent(Login.this, MenuHome.class));
-                finish(); return;
+                finish();
             }
 
             @Override
