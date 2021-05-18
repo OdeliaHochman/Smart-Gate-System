@@ -17,14 +17,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <activity android:name=".DriversDetailsVerification" />
-        <activity android:name=".HostNavigationActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".MenuHome" />
-        <activity android:name=".PersonalInformation" />
-        <activity android:name=".SearchActivity" />
 
+        <activity android:name=".DriversDetailsVerification"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".HostNavigationActivity"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".MenuHome"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".PersonalInformation"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".SearchActivity"
+            android:screenOrientation="landscape"/>
 
         <meta-data
             android:name="preloaded_fonts"

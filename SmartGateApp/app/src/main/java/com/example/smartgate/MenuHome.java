@@ -35,8 +35,8 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener 
 
 
         frombottom = AnimationUtils.loadAnimation(this, R.anim.frombottom);
-        bgapp = (ImageView) findViewById(R.id.bgapp);
-        clover = (ImageView) findViewById(R.id.clover);
+       // bgapp = (ImageView) findViewById(R.id.bgapp);
+        //clover = (ImageView) findViewById(R.id.clover);
         textsplash = (LinearLayout) findViewById(R.id.textsplash);
         menus = (LinearLayout) findViewById(R.id.menus);
         nameTextView = findViewById(R.id.helloNameT);
@@ -44,8 +44,8 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener 
 
         setCompanyName();
 
-        bgapp.animate().translationY(-1900).setDuration(800).setStartDelay(400);
-        clover.animate().alpha(0).setDuration(800).setStartDelay(700);
+        //bgapp.animate().translationY(-1900).setDuration(800).setStartDelay(400);
+     //   clover.animate().alpha(0).setDuration(800).setStartDelay(700);
         textsplash.animate().translationY(140).alpha(0).setDuration(800).setStartDelay(400);
 
 
