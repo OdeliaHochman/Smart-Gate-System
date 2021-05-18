@@ -84,7 +84,7 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener 
             startActivity(intent);
         }
         if (infoForManagerI == v) {
-            Intent intent = new Intent(this, MainActivity.class); ///to change!!!
+            Intent intent = new Intent(this, SearchActivity.class);
             startActivity(intent);
         }
 

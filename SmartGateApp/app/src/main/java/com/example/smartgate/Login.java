@@ -47,7 +47,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         EditTextEmail =  (EditText) findViewById(R.id.username_editTxt);
         EditTextPassword =  (EditText) findViewById(R.id.password_editTxt);
         ButtonLogin =  (Button) findViewById(R.id.login_button);
-       // mProgressBar = (ProgressBar) findViewById(R.id.pb_loading);
+        //mProgressBar = (ProgressBar) findViewById(R.id.pb_loading);
 
 
         // if the user already login go to search activity
