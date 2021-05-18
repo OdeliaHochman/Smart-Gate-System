@@ -1,13 +1,14 @@
 {
   "project_info": {
     "project_number": "981695082072",
+    "firebase_url": "https://smart-gate-5414b-default-rtdb.firebaseio.com",
     "project_id": "smart-gate-5414b",
     "storage_bucket": "smart-gate-5414b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:981695082072:android:35931b8ac2e555c2d5a42d",
+        "mobilesdk_app_id": "1:981695082072:android:c4fec8db4c73dc38d5a42d",
         "android_client_info": {
           "package_name": "com.example.smartgate"
         }
