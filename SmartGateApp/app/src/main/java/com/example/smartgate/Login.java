@@ -38,11 +38,13 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        Log.d("debug",activity);
+
         firebaseAuth = FirebaseAuth.getInstance();
         autoUser = firebaseAuth.getCurrentUser();
 
-        Log.d("debug",activity);
-        setContentView(R.layout.activity_login);
+
 
         EditTextEmail =  (EditText) findViewById(R.id.username_editTxt);
         EditTextPassword =  (EditText) findViewById(R.id.password_editTxt);
@@ -65,6 +67,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         if(v ==  ButtonLogin)
             login();
     }
+
 
     // login
     private void login (){
