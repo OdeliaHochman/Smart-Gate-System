@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_main);
 
         faceImage = (ImageView)findViewById(R.id.face_image);
         lpImage = (ImageView)findViewById(R.id.lp_image);

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/grey_background"
     tools:context=".MenuHome">
-
 
 
     <LinearLayout
@@ -20,39 +20,29 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/sensitiveBuyingT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sensitive Buying"
-            android:textColor="#FFF"
-            android:textSize="40dp" />
-
-
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <LinearLayout
         android:id="@+id/menus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="530dp"
+        android:layout_height="380dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
         android:elevation="6dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.917"
+        app:layout_constraintHorizontal_bias="0.605"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="438dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="70dp"
+            android:gravity="right"
             android:orientation="horizontal">
 
 
@@ -76,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Main Screen"
-                    android:textColor="#0E1843"
+                    android:textColor="#33ED11"
                     android:textSize="22sp" />
 
             </LinearLayout>
@@ -84,7 +74,6 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="50dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -101,7 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="infoForManager"
-                    android:textColor="#0E1843"
+                    android:textColor="#33ED11"
                     android:textSize="22sp" />
 
             </LinearLayout>
@@ -109,17 +98,17 @@
 
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="158dp"
             android:layout_marginBottom="70dp"
+            android:gravity="right"
             android:orientation="horizontal">
 
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="277dp"
+                android:layout_height="134dp"
                 android:layout_marginRight="50dp"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -137,7 +126,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Drivers Details Verification"
-                    android:textColor="#0E1843"
+                    android:textColor="#FF33ED11"
                     android:textSize="22sp" />
 
             </LinearLayout>
@@ -152,8 +141,8 @@
 
                 <ImageView
                     android:id="@+id/logOutImage"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="99dp"
                     android:layout_marginBottom="4dp"
                     android:src="@drawable/exit" />
 
@@ -163,7 +152,8 @@
                     android:layout_height="wrap_content"
                     android:paddingRight="20dp"
                     android:text="Logout"
-                    android:textColor="#0E1843"
+                    android:textAlignment="center"
+                    android:textColor="#FF33ED11"
                     android:textSize="22sp" />
 
             </LinearLayout>
@@ -173,34 +163,6 @@
 
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/helloNameT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="8dp"
-        android:text="שלום שם נציג "
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.088" />
-
-    <TextView
-        android:id="@+id/helloSecondT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="80dp"
-        android:text="חברה : חנייה"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/menus"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/helloNameT" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

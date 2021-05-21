@@ -22,7 +22,6 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener 
     private Animation frombottom;
     private User user;
 
-    private TextView nameTextView, companyTextView; //companyProT , statT ,contactT ,logOutT;
 
 
     final String activity = " RepresentativeHomeActivity";
@@ -39,10 +38,8 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener 
         //clover = (ImageView) findViewById(R.id.clover);
         textsplash = (LinearLayout) findViewById(R.id.textsplash);
         menus = (LinearLayout) findViewById(R.id.menus);
-        nameTextView = findViewById(R.id.helloNameT);
-        companyTextView = findViewById(R.id.helloSecondT);
 
-        setCompanyName();
+       // setCompanyName();
 
         //bgapp.animate().translationY(-1900).setDuration(800).setStartDelay(400);
      //   clover.animate().alpha(0).setDuration(800).setStartDelay(700);
@@ -90,7 +87,7 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener 
 
     }
 
-
+/*
     private void setCompanyName() {
 
         new FirebaseUserHelper().readUser(new FirebaseUserHelper.DataStatusUser() {
@@ -105,4 +102,6 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener 
             }
         });
     }
+
+ */
 }
