@@ -35,6 +35,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     final String activity = " Login";
     private FirebaseUser autoUser;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +44,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         firebaseAuth = FirebaseAuth.getInstance();
         autoUser = firebaseAuth.getCurrentUser();
+
 
 
 
