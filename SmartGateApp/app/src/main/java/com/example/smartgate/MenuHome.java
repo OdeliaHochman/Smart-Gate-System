@@ -8,13 +8,13 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.smartgate.firebaseHelper.FirebaseUserHelper;
+
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class MenuHome extends AppCompatActivity implements View.OnClickListener,ExampleDialog.ExampleDialogListener {
+public class MenuHome extends AppCompatActivity implements View.OnClickListener, AdminDialog.ExampleDialogListener {
 
     private ImageView mainScreenI, driversDetailsVerificationI, infoForManagerI, logOutI;
     private ImageView bgapp, clover;
@@ -90,8 +90,8 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener,
     }
 
     public void openDialog() {
-        ExampleDialog exampleDialog = new ExampleDialog();
-        exampleDialog.show(getSupportFragmentManager(), "example dialog");
+        AdminDialog adminDialog = new AdminDialog();
+        adminDialog.show(getSupportFragmentManager(), "admin dialog");
     }
 
     @Override

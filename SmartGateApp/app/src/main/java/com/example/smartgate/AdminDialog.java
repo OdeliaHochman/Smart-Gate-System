@@ -11,7 +11,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
 
-public class ExampleDialog extends AppCompatDialogFragment {
+public class AdminDialog extends AppCompatDialogFragment {
     private EditText editTCode;
     private ExampleDialogListener listener;
 

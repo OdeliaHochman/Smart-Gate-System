@@ -19,6 +19,7 @@ public class User implements Serializable {
 
     }
 
+
     public void setName(String name) {
         this.name = name;
     }
@@ -26,6 +27,8 @@ public class User implements Serializable {
     public void setMail(String mail) {
         this.mail = mail;
     }
+
+
 
     public String getName() {
         return name;

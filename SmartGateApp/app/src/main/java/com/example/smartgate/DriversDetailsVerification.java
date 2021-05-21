@@ -1,6 +1,7 @@
 
 package com.example.smartgate;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,13 +11,19 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class DriversDetailsVerification extends AppCompatActivity {
 
     private Button ok_btn;
     private EditText EditTextFirstName,EditTextLastName,EditTextEmployee,EditTextID,EditTextLP;
+    private String placeName;
+    private DatabaseReference rootRef,uidRef;
+    private FirebaseDatabase firebaseDatabase;
 
 
 
@@ -33,18 +40,25 @@ public class DriversDetailsVerification extends AppCompatActivity {
         EditTextID =  (EditText) findViewById(R.id.IDNumber_editTxt_DDV);
         EditTextLP =  (EditText) findViewById(R.id.LPNumber_editTxt_DDV);
 
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        rootRef = FirebaseDatabase.getInstance().getReference();
+        uidRef = rootRef.child("Users").child(uid);
+        placeName = uidRef.child("Name").toString();
+
+
         ok_btn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
                 if(v ==  ok_btn)
-                    checkDetails();
+                    checkDetails(placeName);
             }
         });
     }
 
-    private void checkDetails ()
+    private void checkDetails (String place)
     {
         if (isEmpty())
             return;
@@ -54,13 +68,30 @@ public class DriversDetailsVerification extends AppCompatActivity {
         String LPStr = EditTextLP.getText().toString();
         String employeeStr = EditTextEmployee.getText().toString();
 
-        /*
-        Missing in function:
-        read details from db --> compare details  -->
-           --> if one detail is incorrect, a message will appear to the guard.
-           --> if all the details are correct, a message will appear to the guard and a gate will open.
-        */
+        DatabaseReference reference = firebaseDatabase.getReference("Places").child(place);
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                AuthorizedPerson authperson = dataSnapshot.getValue(AuthorizedPerson.class);
 
+                if (fNameStr.equals(authperson.getFirstName()) && lNameStr.equals(authperson.getLastName()) &&
+                        IDStr.equals(authperson.getIDNumber()) && LPStr.equals(authperson.getLPNumber())
+                         && employeeStr.equals(authperson.getEmployeeNumber()))
+                {
+                    openSuccessDialog();
+                    //we need to add --> open gate!
+                }
+                else
+                {
+                    openFailsDialog();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 
@@ -73,5 +104,15 @@ public class DriversDetailsVerification extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    public void openSuccessDialog() {
+        SuccessDialog successDialog = new SuccessDialog();
+        successDialog.show(getSupportFragmentManager(), "success dialog");
+    }
+
+    public void openFailsDialog() {
+        FailsDialog failsDialog = new FailsDialog();
+        failsDialog.show(getSupportFragmentManager(), "fails dialog");
     }
 }
