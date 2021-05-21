@@ -14,13 +14,14 @@ import com.example.smartgate.firebaseHelper.FirebaseUserHelper;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class MenuHome extends AppCompatActivity implements View.OnClickListener {
+public class MenuHome extends AppCompatActivity implements View.OnClickListener,ExampleDialog.ExampleDialogListener {
 
     private ImageView mainScreenI, driversDetailsVerificationI, infoForManagerI, logOutI;
     private ImageView bgapp, clover;
     private LinearLayout textsplash, menus;
     private Animation frombottom;
     private User user;
+    private String adminCode;
 
 
 
@@ -81,10 +82,22 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener 
             startActivity(intent);
         }
         if (infoForManagerI == v) {
-            Intent intent = new Intent(this, SearchActivity.class);
-            startActivity(intent);
+            openDialog();
+            //Intent intent = new Intent(this, SearchActivity.class);
+            //startActivity(intent);
         }
 
+    }
+
+    public void openDialog() {
+        ExampleDialog exampleDialog = new ExampleDialog();
+        exampleDialog.show(getSupportFragmentManager(), "example dialog");
+    }
+
+    @Override
+    public void applyTexts(String code) {
+        //adminCode.setText(code);  (admin --> textView)
+        adminCode = code;
     }
 
 /*

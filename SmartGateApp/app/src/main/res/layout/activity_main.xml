@@ -52,10 +52,10 @@
         android:layout_width="75dp"
         android:layout_height="74dp"
         android:layout_marginEnd="364dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/vx_pl"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.583"
         app:layout_constraintStart_toStartOf="parent"
         tools:srcCompat="@drawable/checked" />
 
