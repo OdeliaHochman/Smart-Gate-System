@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,6 +48,7 @@ public class DriversDetailsVerification extends AppCompatActivity {
         placeName = uidRef.child("Name").toString();
 
 
+
         ok_btn.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -68,7 +70,7 @@ public class DriversDetailsVerification extends AppCompatActivity {
         String LPStr = EditTextLP.getText().toString();
         String employeeStr = EditTextEmployee.getText().toString();
 
-        DatabaseReference reference = firebaseDatabase.getReference("Places").child(place);
+        DatabaseReference reference = firebaseDatabase.getReference("Places").child(place).child("Authorized People").child(LPStr);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -79,7 +81,7 @@ public class DriversDetailsVerification extends AppCompatActivity {
                          && employeeStr.equals(authperson.getEmployeeNumber()))
                 {
                     openSuccessDialog();
-                    //we need to add --> open gate!
+                    //we need to add --> open gate! --> delete details from the screen --> move to MainActivity
                 }
                 else
                 {

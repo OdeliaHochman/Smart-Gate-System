@@ -8,7 +8,7 @@ public class AuthorizedPerson implements Serializable {
     private String lastName;
     private String employeeNumber;
     private String IDNumber;    //int or string?
-    private String LPNumber;    //int or string?
+    private String LPNumber;
 
 
     public AuthorizedPerson() {

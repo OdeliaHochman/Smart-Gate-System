@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/title-DDV"
+        android:id="@+id/title_DDV"
         android:layout_width="721dp"
         android:layout_height="80dp"
         android:layout_marginStart="65dp"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/firstName-DDV"
+        android:id="@+id/firstName_DDV"
         android:layout_width="175dp"
         android:layout_height="49dp"
         android:layout_marginStart="49dp"
@@ -35,15 +35,15 @@
         android:text="First Name"
         android:textColor="@color/green"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/firstName_editTxt-DDV"
-        app:layout_constraintEnd_toStartOf="@+id/IDNumber-DDV"
+        app:layout_constraintBottom_toTopOf="@+id/firstName_editTxt_DDV"
+        app:layout_constraintEnd_toStartOf="@+id/IDNumber_DDV"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title-DDV" />
+        app:layout_constraintTop_toBottomOf="@+id/title_DDV" />
 
 
     <EditText
-        android:id="@+id/firstName_editTxt-DDV"
+        android:id="@+id/firstName_editTxt_DDV"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -51,14 +51,15 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="64dp"
         android:background="@color/gray"
-        app:layout_constraintBottom_toTopOf="@+id/lastName-DDV"
-        app:layout_constraintEnd_toStartOf="@+id/IDNumber_editTxt-DDV"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/lastName_DDV"
+        app:layout_constraintEnd_toStartOf="@+id/IDNumber_editTxt_DDV"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstName-DDV" />
+        app:layout_constraintTop_toBottomOf="@+id/firstName_DDV" />
 
 
     <TextView
-        android:id="@+id/lastName-DDV"
+        android:id="@+id/lastName_DDV"
         android:layout_width="175dp"
         android:layout_height="49dp"
         android:layout_marginStart="55dp"
@@ -67,13 +68,13 @@
         android:text="Last Name"
         android:textColor="@color/green"
         android:textSize="25sp"
-        app:layout_constraintEnd_toStartOf="@+id/LPNumber-DDV"
+        app:layout_constraintEnd_toStartOf="@+id/LPNumber_DDV"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstName_editTxt-DDV" />
+        app:layout_constraintTop_toBottomOf="@+id/firstName_editTxt_DDV" />
 
     <EditText
-        android:id="@+id/lastName_editTxt-DDV"
+        android:id="@+id/lastName_editTxt_DDV"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -81,15 +82,16 @@
         android:layout_marginTop="6dp"
         android:layout_marginEnd="79dp"
         android:background="@color/gray"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/LPNumber_editTxt-DDV"
+        app:layout_constraintEnd_toStartOf="@+id/LPNumber_editTxt_DDV"
         app:layout_constraintHorizontal_bias="0.33"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastName-DDV"
+        app:layout_constraintTop_toBottomOf="@+id/lastName_DDV"
         app:layout_constraintVertical_bias="0.076" />
 
     <TextView
-        android:id="@+id/IDNumber-DDV"
+        android:id="@+id/IDNumber_DDV"
         android:layout_width="175dp"
         android:layout_height="49dp"
         android:layout_marginTop="37dp"
@@ -98,12 +100,12 @@
         android:text="ID Number"
         android:textColor="@color/green"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/IDNumber_editTxt-DDV"
-        app:layout_constraintEnd_toStartOf="@+id/employeeNumber-DDV"
-        app:layout_constraintTop_toBottomOf="@+id/title-DDV" />
+        app:layout_constraintBottom_toTopOf="@+id/IDNumber_editTxt_DDV"
+        app:layout_constraintEnd_toStartOf="@+id/employeeNumber_DDV"
+        app:layout_constraintTop_toBottomOf="@+id/title_DDV" />
 
     <EditText
-        android:id="@+id/IDNumber_editTxt-DDV"
+        android:id="@+id/IDNumber_editTxt_DDV"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -112,12 +114,12 @@
         android:layout_marginEnd="133dp"
         android:background="@color/gray"
         android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@+id/employeeNumber_editTxt-DDV"
-        app:layout_constraintStart_toEndOf="@+id/firstName_editTxt-DDV"
-        app:layout_constraintTop_toBottomOf="@+id/IDNumber-DDV" />
+        app:layout_constraintEnd_toStartOf="@+id/employeeNumber_editTxt_DDV"
+        app:layout_constraintStart_toEndOf="@+id/firstName_editTxt_DDV"
+        app:layout_constraintTop_toBottomOf="@+id/IDNumber_DDV" />
 
     <TextView
-        android:id="@+id/LPNumber-DDV"
+        android:id="@+id/LPNumber_DDV"
         android:layout_width="265dp"
         android:layout_height="46dp"
         android:layout_marginTop="56dp"
@@ -126,10 +128,10 @@
         android:textColor="@color/green"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IDNumber_editTxt-DDV" />
+        app:layout_constraintTop_toBottomOf="@+id/IDNumber_editTxt_DDV" />
 
     <EditText
-        android:id="@+id/LPNumber_editTxt-DDV"
+        android:id="@+id/LPNumber_editTxt_DDV"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -140,12 +142,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ok_btn_DDV"
         app:layout_constraintHorizontal_bias="0.236"
-        app:layout_constraintStart_toEndOf="@+id/lastName_editTxt-DDV"
-        app:layout_constraintTop_toBottomOf="@+id/LPNumber-DDV"
+        app:layout_constraintStart_toEndOf="@+id/lastName_editTxt_DDV"
+        app:layout_constraintTop_toBottomOf="@+id/LPNumber_DDV"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/employeeNumber-DDV"
+        android:id="@+id/employeeNumber_DDV"
         android:layout_width="215dp"
         android:layout_height="34dp"
         android:layout_marginTop="38dp"
@@ -154,13 +156,13 @@
         android:text="Employee Number"
         android:textColor="@color/green"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/employeeNumber_editTxt-DDV"
+        app:layout_constraintBottom_toTopOf="@+id/employeeNumber_editTxt_DDV"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title-DDV"
+        app:layout_constraintTop_toBottomOf="@+id/title_DDV"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/employeeNumber_editTxt-DDV"
+        android:id="@+id/employeeNumber_editTxt_DDV"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -169,8 +171,8 @@
         android:layout_marginEnd="259dp"
         android:background="@color/gray_dark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/IDNumber_editTxt-DDV"
-        app:layout_constraintTop_toBottomOf="@+id/employeeNumber-DDV" />
+        app:layout_constraintStart_toEndOf="@+id/IDNumber_editTxt_DDV"
+        app:layout_constraintTop_toBottomOf="@+id/employeeNumber_DDV" />
 
     <Button
         android:id="@+id/ok_btn_DDV"
@@ -186,7 +188,7 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/employeeNumber_editTxt-DDV"
+        app:layout_constraintTop_toBottomOf="@+id/employeeNumber_editTxt_DDV"
         app:layout_constraintVertical_bias="1.0" />
 
 
