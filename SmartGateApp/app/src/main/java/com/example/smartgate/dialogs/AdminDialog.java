@@ -1,4 +1,4 @@
-package com.example.smartgate;
+package com.example.smartgate.dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.EditText;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
+
+import com.example.smartgate.R;
 
 
 public class AdminDialog extends AppCompatDialogFragment {

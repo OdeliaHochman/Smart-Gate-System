@@ -1,4 +1,4 @@
-package com.example.smartgate;
+package com.example.smartgate.dialogs;
 
 
 import android.app.Dialog;
@@ -8,13 +8,13 @@ import android.os.Bundle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-public class FailsDialog extends AppCompatDialogFragment {
+public class SuccessDialog extends AppCompatDialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Identification failed\n" + "Unauthorized person")
-                .setMessage("Check the details again.\n" +"If there is a technical fault, please open the gate manually.")
+        builder.setTitle("Identification performed successfully")
+                .setMessage("The gate opens!")
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

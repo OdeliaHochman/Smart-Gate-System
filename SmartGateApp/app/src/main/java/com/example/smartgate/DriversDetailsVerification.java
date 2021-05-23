@@ -5,12 +5,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.smartgate.dialogs.FailsDialog_DDV;
+import com.example.smartgate.dialogs.SuccessDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -109,12 +110,13 @@ public class DriversDetailsVerification extends AppCompatActivity {
     }
 
     public void openSuccessDialog() {
-        SuccessDialog successDialog = new SuccessDialog();
-        successDialog.show(getSupportFragmentManager(), "success dialog");
+        SuccessDialog successDialogDDV = new SuccessDialog();
+        successDialogDDV.show(getSupportFragmentManager(), "success dialog");
+
     }
 
     public void openFailsDialog() {
-        FailsDialog failsDialog = new FailsDialog();
-        failsDialog.show(getSupportFragmentManager(), "fails dialog");
+        FailsDialog_DDV failsDialogDDV = new FailsDialog_DDV();
+        failsDialogDDV.show(getSupportFragmentManager(), "fails dialog");
     }
 }

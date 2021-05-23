@@ -1,9 +1,10 @@
 package com.example.smartgate;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.ImageView;
+import com.example.smartgate.dialogs.FailsDialog_Main;
+import com.example.smartgate.dialogs.SuccessDialog;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,5 +26,18 @@ public class MainActivity extends AppCompatActivity {
         vx_faceImage = (ImageView)findViewById(R.id.vx_face);
         vx_lpImage = (ImageView)findViewById(R.id.vx_pl);
 
+    }
+
+
+    public void openSuccessDialog()
+    {
+        SuccessDialog successDialogDDV = new SuccessDialog();
+        successDialogDDV.show(getSupportFragmentManager(), "success dialog");
+    }
+
+    public void openFailsDialog()
+    {
+        FailsDialog_Main failsDialogMain = new FailsDialog_Main();
+        failsDialogMain.show(getSupportFragmentManager(), "fails dialog");
     }
 }

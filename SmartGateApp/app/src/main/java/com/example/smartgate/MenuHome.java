@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.smartgate.dialogs.AdminDialog;
 import com.google.firebase.auth.FirebaseAuth;
 
 
