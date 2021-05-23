@@ -4,6 +4,11 @@
     tools:showIn="navigation_view">
 
     <item
+        android:id="@+id/MenuHome_menu"
+        android:icon="@drawable/menu_home"
+        android:title="MenuHome" />
+
+    <item
         android:id="@+id/Homepage_menu"
         android:icon="@drawable/menu_home"
         android:title="Home" />

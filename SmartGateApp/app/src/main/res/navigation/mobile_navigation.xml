@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/Home_page">
+    app:startDestination="@id/MenuHome">
 
     <fragment
         android:id="@+id/Home_page"
@@ -21,12 +21,12 @@
         android:name="com.example.smartgate.PersonalInformation"
         android:label="Personal Information"
         tools:layout="@layout/activity_personal_information" />
-    <activity
-        android:id="@+id/menuHome"
+    <fragment
+        android:id="@+id/MenuHome"
         android:name="com.example.smartgate.MenuHome"
         android:label="activity_menu_home"
         tools:layout="@layout/activity_menu_home" />
-    <activity
+    <fragment
         android:id="@+id/searchActivity"
         android:name="com.example.smartgate.SearchActivity"
         android:label="activity_search"
