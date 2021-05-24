@@ -3,6 +3,8 @@ package com.example.smartgate;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -47,7 +49,21 @@ public class DriversDetailsVerification extends AppCompatActivity {
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         rootRef = FirebaseDatabase.getInstance().getReference();
         uidRef = rootRef.child("Users").child(uid);
-        placeName = uidRef.child("Name").toString();
+        //placeName = uidRef.child("Name").toString();
+
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                placeName = datasnapshot.child("Name").getValue(String.class);
+                Log.d("debug" , placeName);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.d("firebase", error.getMessage());
+            }
+        };
+        uidRef.addListenerForSingleValueEvent(valueEventListener);
 
 
 
@@ -77,7 +93,9 @@ public class DriversDetailsVerification extends AppCompatActivity {
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 AuthorizedPerson authperson = dataSnapshot.getValue(AuthorizedPerson.class);
+
 
                 if (fNameStr.equals(authperson.getFirstName()) && lNameStr.equals(authperson.getLastName()) &&
                         IDStr.equals(authperson.getIDNumber()) && LPStr.equals(authperson.getLPNumber())
