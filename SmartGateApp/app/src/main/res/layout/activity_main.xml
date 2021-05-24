@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/title-main"
+        android:id="@+id/title_main"
         android:layout_width="721dp"
         android:layout_height="80dp"
         android:layout_marginStart="65dp"
@@ -30,11 +30,9 @@
         android:layout_width="208dp"
         android:layout_height="177dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="46dp"
         android:layout_marginBottom="92dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@mipmap/logo_foreground" />
 
     <ImageView
@@ -57,6 +55,7 @@
         app:layout_constraintEnd_toStartOf="@+id/vx_pl"
         app:layout_constraintHorizontal_bias="0.583"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/face_image"
         tools:srcCompat="@drawable/checked" />
 
     <ImageView
