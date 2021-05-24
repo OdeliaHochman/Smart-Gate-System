@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.smartgate.dialogs.FailsDialog_DDV;
 import com.example.smartgate.dialogs.SuccessDialog;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,14 +21,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class DriversDetailsVerification extends AppCompatActivity {
+public class DriversDetailsVerification extends AppCompatActivity  {
 
     private Button ok_btn;
     private EditText EditTextFirstName,EditTextLastName,EditTextEmployee,EditTextID,EditTextLP;
     private String placeName;
     private DatabaseReference rootRef,uidRef;
     private FirebaseDatabase firebaseDatabase;
-
 
 
     @Override
@@ -49,12 +47,12 @@ public class DriversDetailsVerification extends AppCompatActivity {
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         rootRef = FirebaseDatabase.getInstance().getReference();
         uidRef = rootRef.child("Users").child(uid);
-        //placeName = uidRef.child("Name").toString();
+
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                placeName = datasnapshot.child("Name").getValue(String.class);
+                placeName = datasnapshot.child("name").getValue(String.class);
                 Log.d("debug" , placeName);
             }
 
@@ -89,6 +87,7 @@ public class DriversDetailsVerification extends AppCompatActivity {
         String LPStr = EditTextLP.getText().toString();
         String employeeStr = EditTextEmployee.getText().toString();
 
+
         DatabaseReference reference = firebaseDatabase.getReference("Places").child(place).child("Authorized People").child(LPStr);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -96,13 +95,17 @@ public class DriversDetailsVerification extends AppCompatActivity {
 
                 AuthorizedPerson authperson = dataSnapshot.getValue(AuthorizedPerson.class);
 
-
                 if (fNameStr.equals(authperson.getFirstName()) && lNameStr.equals(authperson.getLastName()) &&
                         IDStr.equals(authperson.getIDNumber()) && LPStr.equals(authperson.getLPNumber())
                          && employeeStr.equals(authperson.getEmployeeNumber()))
                 {
                     openSuccessDialog();
-                    //we need to add --> open gate! --> delete details from the screen --> move to MainActivity
+                    EditTextFirstName.getText().clear();
+                    EditTextLastName.getText().clear();
+                    EditTextEmployee.getText().clear();
+                    EditTextID.getText().clear();
+                    EditTextLP.getText().clear();
+                    //TODO: we need to add --> open gate!
                 }
                 else
                 {
@@ -132,7 +135,6 @@ public class DriversDetailsVerification extends AppCompatActivity {
     public void openSuccessDialog() {
         SuccessDialog successDialogDDV = new SuccessDialog();
         successDialogDDV.show(getSupportFragmentManager(), "success dialog");
-
     }
 
     public void openFailsDialog() {

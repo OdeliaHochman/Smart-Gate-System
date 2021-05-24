@@ -11,6 +11,7 @@ public class AuthorizedPerson implements Serializable {
     private String LPNumber;
 
 
+
     public AuthorizedPerson() {
     }
 
@@ -59,4 +60,6 @@ public class AuthorizedPerson implements Serializable {
     public void setLPNumber(String LPNumber) {
         this.LPNumber = LPNumber;
     }
+
+
 }

@@ -6,16 +6,16 @@ public class User implements Serializable {
 
     private String name;
     private String mail;
-    private int code;
+    private int adminCode;
 
 
     public User() {
     }
 
-    public User(String name, String mail, int code) {
+    public User(String name, String mail, int adminCode) {
         this.name = name;
         this.mail = mail;
-        this.code = code;
+        this.adminCode = adminCode;
 
     }
 
@@ -38,8 +38,8 @@ public class User implements Serializable {
         return mail;
     }
 
-    public Integer getCode() {
-        return code;
+    public Integer getAdminCode() {
+        return adminCode;
     }
 
 
