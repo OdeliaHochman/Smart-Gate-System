@@ -39,7 +39,7 @@
 
 
         <LinearLayout
-            android:layout_width="438dp"
+            android:layout_width="432dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="70dp"
             android:gravity="right"
@@ -72,7 +72,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="193dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -89,7 +89,7 @@
                     android:id="@+id/infoForManagerName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="infoForManager"
+                    android:text="    infoForManager"
                     android:textColor="#33ED11"
                     android:textSize="22sp" />
 
