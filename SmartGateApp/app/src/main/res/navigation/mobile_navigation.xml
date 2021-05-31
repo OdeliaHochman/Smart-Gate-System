@@ -5,32 +5,27 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@id/MenuHome">
 
-    <fragment
+    <activity
         android:id="@+id/Home_page"
         android:name="com.example.smartgate.MainActivity"
         android:label="Home"
         tools:layout="@layout/activity_main" />
-    <fragment
+    <activity
         android:id="@+id/Driver_information_verification_page"
         android:name="com.example.smartgate.DriversDetailsVerification"
         android:label="Driver information verification"
         tools:layout="@layout/activity_drivers_details_verification" />
 
-    <fragment
+    <activity
         android:id="@+id/Personal_Information_page"
         android:name="com.example.smartgate.PersonalInformation"
         android:label="Personal Information"
         tools:layout="@layout/activity_personal_information" />
-    <fragment
+    <activity
         android:id="@+id/MenuHome"
         android:name="com.example.smartgate.MenuHome"
         android:label="activity_menu_home"
         tools:layout="@layout/activity_menu_home" />
-    <fragment
-        android:id="@+id/searchActivity"
-        android:name="com.example.smartgate.SearchActivity"
-        android:label="activity_search"
-        tools:layout="@layout/activity_search" />
 
 
 </navigation>

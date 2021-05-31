@@ -129,7 +129,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                startActivity(new Intent(Login.this, MenuHome.class));
+                startActivity(new Intent(Login.this, HostNavigationActivity.class));
                 finish();
             }
 
@@ -141,4 +141,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         uidRef.addListenerForSingleValueEvent(valueEventListener);
 
     }
+
+
 }
