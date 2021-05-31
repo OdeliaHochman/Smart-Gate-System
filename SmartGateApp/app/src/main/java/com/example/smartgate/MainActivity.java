@@ -1,5 +1,6 @@
 package com.example.smartgate;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -45,8 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void openSuccessDialog()
     {
-        SuccessDialog successDialogDDV = new SuccessDialog();
-        successDialogDDV.show(getSupportFragmentManager(), "success dialog");
+        SuccessDialog successDialogMain = new SuccessDialog();
+        successDialogMain.show(getSupportFragmentManager(), "success dialog");
+
     }
 
     public void openFailsDialog()
