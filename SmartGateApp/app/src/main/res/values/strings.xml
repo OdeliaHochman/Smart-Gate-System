@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Smart Gate</string>
     <string name="Hello">Hello</string>
+    <string name="Search">Search</string>
     <string name="Company">Company:</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

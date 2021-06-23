@@ -26,8 +26,6 @@
             android:screenOrientation="landscape"/>
         <activity android:name=".MenuHome"
             android:screenOrientation="landscape"/>
-        <activity android:name=".PersonalInformation"
-            android:screenOrientation="landscape"/>
         <activity android:name=".SearchActivity"
             android:screenOrientation="landscape"/>
 

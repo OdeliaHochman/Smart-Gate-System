@@ -7,20 +7,23 @@ public class AuthorizedPerson implements Serializable {
     private String firstName;
     private String lastName;
     private String employeeNumber;
-    private String IDNumber;    //int or string?
+    private String IDNumber;
     private String LPNumber;
+    private String urlImage;
+
 
 
 
     public AuthorizedPerson() {
     }
 
-    public AuthorizedPerson(String firstName, String lastName,String IDNumber, String LPNumber, String employeeNumber) {
+    public AuthorizedPerson(String firstName, String lastName,String IDNumber, String LPNumber, String employeeNumber,String urlImage) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.IDNumber = IDNumber;
         this.LPNumber = LPNumber;
         this.employeeNumber = employeeNumber;
+        this.urlImage = urlImage;
 
     }
 
@@ -61,5 +64,7 @@ public class AuthorizedPerson implements Serializable {
         this.LPNumber = LPNumber;
     }
 
+    public String getUrlImage() { return urlImage; }
 
+    public void setUrlImage(String urlImage) { this.urlImage = urlImage; }
 }
