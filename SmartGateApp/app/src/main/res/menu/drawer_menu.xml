@@ -22,11 +22,6 @@
         android:title="Driver information verification" />
 
     <item
-        android:id="@+id/Personal_Info_menu"
-        android:icon="@android:drawable/ic_dialog_info"
-        android:title="Personal Information" />
-
-    <item
         android:id="@+id/logout"
         android:icon="@drawable/menu_logout"
         android:title="Logout" />
