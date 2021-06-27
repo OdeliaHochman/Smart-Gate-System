@@ -45,7 +45,7 @@ public class RecyclerView_config implements Serializable {
 
         public AuthPersonItemView(ViewGroup parent)
         {
-            super(LayoutInflater.from(mContext).inflate(R.layout.authPeople_list_item,parent,false));
+            super(LayoutInflater.from(mContext).inflate(R.layout.authpeople_list_item,parent,false));
 
 
             mFirstName =(TextView)itemView.findViewById(R.id.firstName);
