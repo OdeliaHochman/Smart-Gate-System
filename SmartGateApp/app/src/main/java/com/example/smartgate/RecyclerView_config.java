@@ -53,7 +53,6 @@ public class RecyclerView_config implements Serializable {
             mIDNumber =(TextView)itemView.findViewById(R.id.id_number);
             personIm = (ImageView)itemView.findViewById(R.id.imageView_authPeopleList);
 
-
         }
 
         public void bind(AuthorizedPerson authorizedPerson , String IDNumber)

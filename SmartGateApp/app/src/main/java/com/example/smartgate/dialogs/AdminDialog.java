@@ -3,19 +3,28 @@ package com.example.smartgate.dialogs;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
+import com.example.smartgate.MainActivity;
 import com.example.smartgate.R;
+import com.example.smartgate.SearchActivity;
+import com.example.smartgate.UpdateAuthorizedPersonActivity;
+import com.example.smartgate.User;
+import com.example.smartgate.firebaseHelper.FirebaseUserHelper;
 
 
 public class AdminDialog extends AppCompatDialogFragment {
     private EditText editTCode;
     private ExampleDialogListener listener;
+    private String adminCode;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -23,6 +32,7 @@ public class AdminDialog extends AppCompatDialogFragment {
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.layout_dialog, null);
+        editTCode = view.findViewById(R.id.code_EditText);
 
         builder.setView(view)
                 .setTitle("Administrator Code")
@@ -36,11 +46,10 @@ public class AdminDialog extends AppCompatDialogFragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                       String code = editTCode.getText().toString();
-                        listener.applyTexts(code);
+                      listener.applyTexts(code);
+
                     }
                 });
-
-        editTCode = view.findViewById(R.id.code_EditText);
 
         return builder.create();
     }

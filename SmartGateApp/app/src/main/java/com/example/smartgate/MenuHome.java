@@ -8,10 +8,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smartgate.dialogs.AdminDialog;
+import com.example.smartgate.firebaseHelper.FirebaseUserHelper;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -22,16 +24,12 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener,
     private LinearLayout textsplash, menus;
     private Animation frombottom;
     private User user;
-    private String adminCode;
+    private String adminCode,codeFromDialog;
 
-
-
-    final String activity = " RepresentativeHomeActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("debug", activity);
         setContentView(R.layout.activity_menu_home);
 
 
@@ -84,8 +82,29 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener,
         }
         if (infoForManagerI == v) {
             openDialog();
-            //Intent intent = new Intent(this, SearchActivity.class);
-            //startActivity(intent);
+
+            new FirebaseUserHelper().readUser(new FirebaseUserHelper.DataStatusUser() {
+                @Override
+                public void DataIsLoaded(User userHelper, String key) {
+                    User adminUser = (User) userHelper;
+                    adminCode = adminUser.getAdminCode();
+                    Log.d("admin code",adminCode);
+                    Log.d("dialog code",codeFromDialog);
+                }
+            });
+
+            if(adminCode == codeFromDialog)
+            {
+                Intent intent = new Intent(this, SearchActivity.class);
+                startActivity(intent);
+            }
+            else
+            {
+                Toast.makeText(this, " Invalid code", Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
+
         }
 
     }
@@ -98,7 +117,7 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener,
     @Override
     public void applyTexts(String code) {
         //adminCode.setText(code);  (admin --> textView)
-        adminCode = code;
+        codeFromDialog = code;
     }
 
 /*
