@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.example.smartgate.dataObject.AuthorizedPerson;
+import com.example.smartgate.dataObject.User;
 import com.example.smartgate.firebaseHelper.FirebaseAuthorizedPersonHelper;
 import com.example.smartgate.firebaseHelper.FirebasePlacesHelper;
 import com.example.smartgate.firebaseHelper.FirebaseUserHelper;

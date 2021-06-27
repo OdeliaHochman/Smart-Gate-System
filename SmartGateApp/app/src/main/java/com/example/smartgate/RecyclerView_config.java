@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.smartgate.dataObject.AuthorizedPerson;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;

@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.smartgate.dataObject.User;
 import com.example.smartgate.dialogs.AdminDialog;
 import com.example.smartgate.firebaseHelper.FirebaseUserHelper;
 import com.google.firebase.auth.FirebaseAuth;

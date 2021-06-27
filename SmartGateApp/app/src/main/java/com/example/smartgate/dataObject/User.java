@@ -1,4 +1,4 @@
-package com.example.smartgate;
+package com.example.smartgate.dataObject;
 
 import java.io.Serializable;
 

@@ -3,22 +3,15 @@ package com.example.smartgate.dialogs;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-import com.example.smartgate.MainActivity;
 import com.example.smartgate.R;
-import com.example.smartgate.SearchActivity;
-import com.example.smartgate.UpdateAuthorizedPersonActivity;
-import com.example.smartgate.User;
-import com.example.smartgate.firebaseHelper.FirebaseUserHelper;
 
 
 public class AdminDialog extends AppCompatDialogFragment {

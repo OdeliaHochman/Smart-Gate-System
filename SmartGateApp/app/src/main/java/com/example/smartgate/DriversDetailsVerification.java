@@ -4,7 +4,6 @@ package com.example.smartgate;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -12,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.smartgate.dataObject.AuthorizedPerson;
 import com.example.smartgate.dialogs.FailsDialog_DDV;
 import com.example.smartgate.dialogs.SuccessDialog;
 import com.google.firebase.auth.FirebaseAuth;

@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.SearchView;
 
+import com.example.smartgate.dataObject.AuthorizedPerson;
+import com.example.smartgate.dataObject.User;
 import com.example.smartgate.firebaseHelper.FirebaseAuthorizedPersonHelper;
 import com.example.smartgate.firebaseHelper.FirebasePlacesHelper;
 import com.example.smartgate.firebaseHelper.FirebaseUserHelper;

@@ -1,7 +1,7 @@
 package com.example.smartgate.firebaseHelper;
 
 import androidx.annotation.NonNull;
-import com.example.smartgate.User;
+import com.example.smartgate.dataObject.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
