@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/bgapp1_details"
-        android:layout_width="505dp"
-        android:layout_height="113dp"
+        android:layout_width="870dp"
+        android:layout_height="98dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:scaleType="fitXY"
@@ -20,20 +20,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
-
     <TextView
         android:id="@+id/title_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:text="פרטי אדם מורשה"
+        android:layout_marginTop="28dp"
+        android:text="Authorized Person Details"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/authperson_image_Adetails"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.037"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.047" />
 
     <TextView
         android:id="@+id/first_name_Adetails"
@@ -48,17 +49,17 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/last_name_Adetails"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/authperson_image_Adetails"
         app:layout_constraintTop_toBottomOf="@+id/bgapp1_details"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/id_Adetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="472dp"
         android:text="ID Number"
         android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,8 +69,8 @@
         android:id="@+id/employee_number_Adetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="23dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="432dp"
         android:text="Employee Number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/id_Adetails" />
@@ -79,11 +80,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="20dp"
         android:text="autho person details"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.354"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lp_number_details" />
 
@@ -91,16 +92,16 @@
         android:id="@+id/last_name_Adetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="188dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="13dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="362dp"
+        android:layout_marginBottom="180dp"
         android:text="Last Name"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/id_Adetails"
+        app:layout_constraintBottom_toTopOf="@+id/btnUpdateProDet"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toEndOf="@+id/first_name_Adetails" />
 
     <ImageView
         android:id="@+id/authperson_image_Adetails"
@@ -112,48 +113,47 @@
         app:layout_constraintTop_toBottomOf="@+id/bgapp1_details"
         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
-    <Button
-        android:id="@+id/btnUpdateProDet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="50dp"
-        android:backgroundTint="#D0FDAD39"
-        android:text="Update Details"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnDeleteProDet" />
+    <TextView
+        android:id="@+id/lp_number_details"
+        android:layout_width="93dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="13dp"
+        android:text="LP number"
+        app:layout_constraintBottom_toTopOf="@+id/product_details_name_Adetails"
+        app:layout_constraintStart_toEndOf="@+id/authperson_image_Adetails"
+        app:layout_constraintTop_toBottomOf="@+id/employee_number_Adetails" />
 
     <Button
         android:id="@+id/btnDeleteProDet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="43dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="#D0FDAD39"
         android:text="Delete Details"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnUpdateProDet"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/lp_number_details"
-        android:layout_width="37dp"
-        android:layout_height="10dp"
-        android:layout_marginTop="90dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        android:text="LP number"
-        app:layout_constraintBottom_toTopOf="@+id/product_details_name_Adetails"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/employee_number_Adetails"
-        app:layout_constraintVertical_bias="0.921" />
+        app:layout_constraintStart_toEndOf="@+id/btnUpdateProDet" />
+
+    <Button
+        android:id="@+id/btnUpdateProDet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#D0FDAD39"
+        android:text="Update Details"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnDeleteProDet"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 

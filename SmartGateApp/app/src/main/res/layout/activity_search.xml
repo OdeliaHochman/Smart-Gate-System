@@ -9,18 +9,17 @@
 
     <ImageView
         android:id="@+id/clover"
-        android:layout_width="158dp"
-        android:layout_height="113dp"
-        android:layout_marginEnd="308dp"
+        android:layout_width="132dp"
+        android:layout_height="114dp"
         android:elevation="6dp"
         android:src="@drawable/clover"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/bgapp1"
-        android:layout_width="526dp"
-        android:layout_height="115dp"
+        android:layout_width="827dp"
+        android:layout_height="113dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:scaleType="fitXY"
@@ -42,8 +41,8 @@
 
         <SearchView
             android:id="@+id/searchLine"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="715dp"
+            android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:iconifiedByDefault="false"
             android:queryHint="Search by name or license plate number" />
@@ -75,10 +74,10 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="63dp"
         android:layout_height="50dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="170dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/topPageSearch"
+        app:layout_constraintEnd_toEndOf="@+id/topPageSearch"
+        app:layout_constraintStart_toStartOf="@+id/topPageSearch"
+        app:layout_constraintTop_toBottomOf="@+id/bgapp1" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -87,13 +86,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:layout_marginBottom="32dp"
         android:src="@drawable/ic_add_black_24dp"
         app:backgroundTint="#f8bb07"
         app:elevation="6dp"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="@+id/topPageSearch"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

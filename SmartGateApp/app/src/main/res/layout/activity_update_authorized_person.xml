@@ -9,9 +9,9 @@
 
 
     <ImageView
-        android:id="@+id/bgapp1_add"
-        android:layout_width="505dp"
-        android:layout_height="113dp"
+        android:id="@+id/bgapp1_update"
+        android:layout_width="870dp"
+        android:layout_height="98dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:scaleType="fitXY"
@@ -28,101 +28,111 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:text="עדכון פרטי אדם מורשה"
+        android:text="Update Authorized Person Details"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/bgapp1_update"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:gravity="end"
-        android:orientation="vertical"
+        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintVertical_bias="0.0" />
 
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="825dp"
+        android:layout_height="318dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bgapp1_update">
 
-        <EditText
-            android:id="@+id/updateFirstName_editTxt"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="600dp"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:gravity="left"
-            android:hint="First Name"
-            android:inputType="text" />
+            android:gravity="end"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp">
 
 
-        <EditText
-            android:id="@+id/updateLastName_editTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:gravity="left"
-            android:hint="Last Name"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/updateIDNumber_editTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:gravity="left"
-            android:hint="ID Number"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/updateEmployeeNumber_editTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:gravity="left"
-            android:hint="Employee Number"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/updateLPNumber_editTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:gravity="left"
-            android:hint="License Plate Number"
-            android:inputType="text" />
+            <EditText
+                android:id="@+id/updateFirstName_editTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="left"
+                android:hint="First Name"
+                android:inputType="text" />
 
 
-        <EditText
-            android:id="@+id/Updateimage_editTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:gravity="left"
-            android:hint="Url Image"
-            android:inputType="text" />
+            <EditText
+                android:id="@+id/updateLastName_editTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="left"
+                android:hint="Last Name"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/updateIDNumber_editTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="left"
+                android:hint="ID Number"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/updateEmployeeNumber_editTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="left"
+                android:hint="Employee Number"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/updateLPNumber_editTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="left"
+                android:hint="License Plate Number"
+                android:inputType="text" />
 
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/Updateimage_editTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="left"
+                android:hint="Url Image"
+                android:inputType="text" />
+
+
+        </LinearLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/saveUpdate_button"
         android:layout_width="101dp"
-        android:layout_height="47dp"
+        android:layout_height="53dp"
         android:layout_gravity="center"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginTop="239dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="#FFC107"
         android:text="Update"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.987"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.91" />
+        app:layout_constraintTop_toBottomOf="@+id/title_update" />
+
 
     <ProgressBar
         android:id="@+id/progressBar_update_authpersonID"
@@ -133,7 +143,6 @@
         app:layout_constraintBottom_toTopOf="@+id/saveUpdate_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
