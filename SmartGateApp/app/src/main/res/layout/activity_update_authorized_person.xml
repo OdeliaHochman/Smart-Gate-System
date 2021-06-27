@@ -29,7 +29,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:text="עדכון כרטיס"
+        android:text="עדכון פרטי אדם מורשה"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="35dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,8 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:gravity="right"
-            android:hint="שם פרטי"
+            android:gravity="left"
+            android:hint="First Name"
             android:inputType="text" />
 
 
@@ -62,8 +62,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:gravity="right"
-            android:hint="שם משפחה"
+            android:gravity="left"
+            android:hint="Last Name"
             android:inputType="text" />
 
         <EditText
@@ -71,7 +71,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="תעודת זהות"
+            android:gravity="left"
+            android:hint="ID Number"
             android:inputType="text" />
 
         <EditText
@@ -79,8 +80,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:gravity="right"
-            android:hint="מספר עובד"
+            android:gravity="left"
+            android:hint="Employee Number"
             android:inputType="text" />
 
         <EditText
@@ -88,8 +89,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:gravity="right"
-            android:hint="לוחית רישוי"
+            android:gravity="left"
+            android:hint="License Plate Number"
             android:inputType="text" />
 
 
@@ -98,8 +99,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:gravity="right"
-            android:hint="תמונה"
+            android:gravity="left"
+            android:hint="Url Image"
             android:inputType="text" />
 
 
@@ -113,7 +114,7 @@
         android:layout_marginEnd="160dp"
         android:layout_marginBottom="52dp"
         android:backgroundTint="#FFC107"
-        android:text="עדכן"
+        android:text="Update"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -124,7 +125,7 @@
         app:layout_constraintVertical_bias="0.91" />
 
     <ProgressBar
-        android:id="@+id/progressBar_update_product"
+        android:id="@+id/progressBar_update_authpersonID"
         android:visibility="invisible"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"

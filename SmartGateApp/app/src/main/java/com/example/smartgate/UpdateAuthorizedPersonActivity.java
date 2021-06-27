@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,14 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smartgate.firebaseHelper.FirebaseAuthorizedPersonHelper;
 import com.example.smartgate.firebaseHelper.FirebaseUserHelper;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
@@ -37,8 +34,9 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private ProgressBar mProgressBar;
     private boolean isAdd=true; // if this add new or edit
-    AuthorizedPerson authorizedPerson;
+    private AuthorizedPerson authorizedPerson;
     private boolean update=false;
+    private String placeName;
 
 
 
@@ -50,7 +48,7 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
         FirebaseDatabase cDatabase;
         cDatabase =FirebaseDatabase.getInstance();
         final FirebaseDatabase creference=FirebaseDatabase.getInstance();
-        final String id = getIntent().getStringExtra("ID Number"); /////////////****************
+        final String id = getIntent().getStringExtra("ID Number");
 
         IDNumber = findViewById(R.id.updateIDNumber_editTxt);
         firstName = findViewById(R.id.updateFirstName_editTxt);
@@ -59,8 +57,8 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
         urlImage = findViewById(R.id.Updateimage_editTxt);
         LPNumber = findViewById(R.id.updateLPNumber_editTxt);
         btnUpdate = findViewById(R.id.saveUpdate_button);
-        mProgressBar= findViewById(R.id.progressBar_update_product);
-        //setCompanyName();
+        mProgressBar= findViewById(R.id.progressBar_update_authpersonID);
+        setPlaceName();
 
         if (id != null) { // if you get from update page
             isAdd=false;
@@ -84,7 +82,7 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
 
 
                     String id_new = IDNumber.getText().toString();
-                    new FirebaseAuthorizedPersonHelper().updateAuthPerson(id_new, authorizedPerson, new FirebaseAuthorizedPersonHelper.DataStatus() {
+                    new FirebaseAuthorizedPersonHelper().updateAuthPerson(id_new,placeName, authorizedPerson, new FirebaseAuthorizedPersonHelper.DataStatus() {
                         @Override
                         public void DataIsLoaded(List<AuthorizedPerson> authorizedPeopleList, List<String> keys) {
 
@@ -102,7 +100,7 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
 
                         @Override
                         public void DataIsUpdated() {
-                            Toast.makeText(UpdateAuthorizedPersonActivity.this, " התעדכן בהצלחה", Toast.LENGTH_LONG).show();
+                            Toast.makeText(UpdateAuthorizedPersonActivity.this, " Updated successfully", Toast.LENGTH_LONG).show();
                             finish();
                             return;
                         }
@@ -124,7 +122,7 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
 
     private void setDetails (String id) {
 
-        DatabaseReference reference = firebaseDatabase.getReference("Places").child(id);  ////////*************************
+        DatabaseReference reference = firebaseDatabase.getReference("Places").child(placeName).child("Authorized People").child(id);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -148,18 +146,13 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
 
     }
 
-//    private void setCompanyName () {
-//        new FirebaseUserHelper().readUser(new FirebaseUserHelper.DataStatusUser() {
-//            @Override
-//            public void DataIsLoaded(User userHelper, String key) {
-//                User repUser = (User) userHelper;
-//                String companyName = repUser.getCompanyName();
-//                firstName.setText(companyName);
-//                firstName.setFocusable(false); // unable change the company name
-//
-//
-//
-//            }
-//        });
-//    }
+    private void setPlaceName () {
+        new FirebaseUserHelper().readUser(new FirebaseUserHelper.DataStatusUser() {
+            @Override
+            public void DataIsLoaded(User userHelper, String key) {
+                User repUser = (User) userHelper;
+                placeName = repUser.getName();
+            }
+        });
+    }
 }

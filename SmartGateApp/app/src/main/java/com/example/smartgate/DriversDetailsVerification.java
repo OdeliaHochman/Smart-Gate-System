@@ -88,7 +88,7 @@ public class DriversDetailsVerification extends AppCompatActivity  {
         String employeeStr = EditTextEmployee.getText().toString();
 
 
-        DatabaseReference reference = firebaseDatabase.getReference("Places").child(place).child("Authorized People").child(LPStr);
+        DatabaseReference reference = firebaseDatabase.getReference("Places").child(place).child("Authorized People").child(IDStr);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

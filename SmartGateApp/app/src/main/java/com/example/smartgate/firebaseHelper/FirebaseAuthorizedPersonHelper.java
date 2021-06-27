@@ -20,7 +20,7 @@ public class FirebaseAuthorizedPersonHelper implements Serializable {
     private FirebaseDatabase mDatabase;
     private DatabaseReference mReference;
     private List<AuthorizedPerson> authorizedPeopleList = new ArrayList<>();
-    private List<AuthorizedPerson> authorizedPersonLPNumber = new ArrayList<>();
+    private List<AuthorizedPerson> authorizedPersonIDNumber = new ArrayList<>();
 
 
 
@@ -39,21 +39,21 @@ public class FirebaseAuthorizedPersonHelper implements Serializable {
     {
 
         mDatabase = FirebaseDatabase.getInstance();
-        mReference=mDatabase.getReference("Places");  ////////////////////////////**************************************
+        mReference=mDatabase.getReference("Places");
     }
 
-    public void readAuthPersonByLPNumber(final List<String> barcodes, final DataStatus dataStatus)
+    public void readAuthPersonByIDNumber(final List<String> IDs,String placeName, final DataStatus dataStatus)
     {
-        authorizedPersonLPNumber.clear();
-        for(int i=0; i<barcodes.size(); i++)
+        authorizedPersonIDNumber.clear();
+        for(int i=0; i<IDs.size(); i++)
         {
-            mReference.child(barcodes.get(i)).addValueEventListener(new ValueEventListener() {
+            mReference.child(placeName).child("Authorized People").child(IDs.get(i)).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     AuthorizedPerson authorizedPerson= dataSnapshot.getValue(AuthorizedPerson.class);
-                    authorizedPersonLPNumber.add(authorizedPerson);
-                    if (barcodes.size()== authorizedPersonLPNumber.size())
-                        dataStatus.DataIsLoaded(authorizedPersonLPNumber,barcodes);
+                    authorizedPersonIDNumber.add(authorizedPerson);
+                    if (IDs.size()== authorizedPersonIDNumber.size())
+                        dataStatus.DataIsLoaded(authorizedPersonIDNumber,IDs);
                 }
 
                 @Override
@@ -67,9 +67,9 @@ public class FirebaseAuthorizedPersonHelper implements Serializable {
 
     }
 
-    public void readOneAuthPerson(String barcode, final DataStatus dataStatus)
+    public void readOneAuthPerson(String ID,String placeName, final DataStatus dataStatus)
     {
-        mReference.child(barcode).addListenerForSingleValueEvent(new ValueEventListener() {
+        mReference.child(placeName).child("Authorized People").child(ID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
@@ -85,9 +85,9 @@ public class FirebaseAuthorizedPersonHelper implements Serializable {
     }
 
 
-    public void readAuthPeople(final DataStatus dataStatus)
+    public void readAuthPeople(String placeName,final DataStatus dataStatus)
     {
-        mReference.addValueEventListener(new ValueEventListener() {
+        mReference.child(placeName).child("Authorized People").addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -113,19 +113,19 @@ public class FirebaseAuthorizedPersonHelper implements Serializable {
         });
     }
 
-    public void addAuthPerson(AuthorizedPerson authorizedPerson, final DataStatus dataStatus)
+    public void addAuthPerson(AuthorizedPerson authorizedPerson,String placeName, final DataStatus dataStatus)
     {
         String id = authorizedPerson.getIDNumber();
-        mReference.child(id).setValue(authorizedPerson).addOnSuccessListener(new OnSuccessListener<Void>() {
+        mReference.child(placeName).child("Authorized People").child(id).setValue(authorizedPerson).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 dataStatus.DataIsInserted();
             }
         });
     }
-    public void updateAuthPerson(String key, AuthorizedPerson authorizedPerson, final DataStatus dataStatus)
+    public void updateAuthPerson(String key,String placeName, AuthorizedPerson authorizedPerson, final DataStatus dataStatus)
     {
-        mReference.child(key).setValue(authorizedPerson).addOnSuccessListener(new OnSuccessListener<Void>() {
+        mReference.child(placeName).child("Authorized People").child(key).setValue(authorizedPerson).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 dataStatus.DataIsUpdated();
@@ -133,9 +133,9 @@ public class FirebaseAuthorizedPersonHelper implements Serializable {
         });
     }
 
-    public void deleteAuthPerson(String key , final DataStatus dataStatus)
+    public void deleteAuthPerson(String key ,String placeName, final DataStatus dataStatus)
     {
-        mReference.child(key).setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
+        mReference.child(placeName).child("Authorized People").child(key).setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 dataStatus.DataIsDeleted();

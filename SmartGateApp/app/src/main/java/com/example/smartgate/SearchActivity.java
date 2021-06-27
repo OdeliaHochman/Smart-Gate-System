@@ -26,20 +26,19 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     private FloatingActionButton floatingButton;
     private List<AuthorizedPerson> authPeopleList;
     private User adminUser;
-    private FirebaseDatabase pDatabase=FirebaseDatabase.getInstance();
-    private DatabaseReference pReference=pDatabase.getReference("Places"); //////*************************
-    private  String placeName;
+    private FirebaseDatabase pDatabase;
+    private DatabaseReference pReference;
+    private String placeName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-
+        pDatabase=FirebaseDatabase.getInstance();
+        pReference=pDatabase.getReference("Places");
 
         mySearchView = (SearchView)findViewById(R.id.searchLine);
-
-        mRecycler = (RecyclerView)findViewById(R.id.recyclerView_products);
-
+        mRecycler = (RecyclerView)findViewById(R.id.recyclerView_ids);
         floatingButton = (FloatingActionButton)findViewById(R.id.floating_button_search);
         floatingButton.setOnClickListener(this);
 
@@ -90,7 +89,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
             for (AuthorizedPerson a : authPeopleList) {
                 if (a.getFirstName().toLowerCase().contains(str) || a.getLastName().toLowerCase().contains(str) || a.getLPNumber().contains(str)) {
                     searchList.add(a);
-                    //searchKeys.add(a.getIDNumber());///////////////////*********************************************
+                    searchKeys.add(a.getIDNumber());
                 }
             }
 
@@ -104,14 +103,14 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         new FirebasePlacesHelper().readAuthPeopleOfPlace(placeName,new FirebasePlacesHelper.DataStatus()
         {
             @Override
-            public void DataIsLoaded(List<String> barcodesList)
+            public void DataIsLoaded(List<String> IDsList)
             {
-                new FirebaseAuthorizedPersonHelper().readAuthPersonByLPNumber(barcodesList, new FirebaseAuthorizedPersonHelper.DataStatus() {
+                new FirebaseAuthorizedPersonHelper().readAuthPersonByIDNumber(IDsList,placeName, new FirebaseAuthorizedPersonHelper.DataStatus() {
                     @Override
-                    public void DataIsLoaded(List<AuthorizedPerson> ProductBarcode, List<String> keys) {
+                    public void DataIsLoaded(List<AuthorizedPerson> authorizedPeopleList, List<String> keys) {
                         findViewById(R.id.progressBar).setVisibility(View.GONE);
 
-                        authPeopleList=ProductBarcode;
+                        authPeopleList=authorizedPeopleList;
                         new RecyclerView_config().setConfig(mRecycler,SearchActivity.this,authPeopleList,keys);
 
                     }

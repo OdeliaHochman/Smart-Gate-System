@@ -2,7 +2,6 @@ package com.example.smartgate;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +21,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AddAuthorizedPersonActivity extends AppCompatActivity {
@@ -35,10 +33,10 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
     private EditText IDNumber;
     private EditText employeeNumber;
     private EditText urlImage;
-
     private FirebaseDatabase firebaseDatabase;
     private ProgressBar mProgressBar;
     private boolean isAdd=true; // if this add new or edit
+    private String placeName;
 
 
     @Override
@@ -46,7 +44,7 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_authorized_person);
         firebaseDatabase = FirebaseDatabase.getInstance();
-        final String id_number = getIntent().getStringExtra("ID Number");   ////////////////***************************
+        final String id_number = getIntent().getStringExtra("ID Number");
 
         LPNumber = findViewById(R.id.LPNumber_editTxt);
         employeeNumber = findViewById(R.id.employeeNumber_editTxt);
@@ -55,12 +53,12 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
         urlImage = findViewById(R.id.image_editTxt);
         lastName = findViewById(R.id.lastName_editTxt);
         btnSave = findViewById(R.id.save_button);
-        mProgressBar= findViewById(R.id.progressBar_add_product);
-        //setPlaceName();
+        mProgressBar= findViewById(R.id.progressBar_add_authpersonID);
+        setPlaceName();
 
         if (id_number != null) { // if you get from update page
             isAdd=false;
-            btnSave.setText("עדכן"); // change the txt button
+            btnSave.setText("Update"); // change the txt button
             setDetails(id_number);
             IDNumber.setFocusable(false); // unable change the ID Number
 
@@ -84,7 +82,7 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
 
                     if (isAdd) {
 
-                        new FirebasePlacesHelper().addAuthPersonOfPlace(authPerson, new FirebasePlacesHelper.DataStatus() {
+                        new FirebasePlacesHelper().addAuthPersonOfPlace(authPerson,placeName, new FirebasePlacesHelper.DataStatus() {
                             @Override
                             public void DataIsLoaded(List<String> keys) {
 
@@ -105,9 +103,9 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
 
                             }
                         });
-                        new FirebaseAuthorizedPersonHelper().addAuthPerson(authPerson, new FirebaseAuthorizedPersonHelper.DataStatus() {
+                        new FirebaseAuthorizedPersonHelper().addAuthPerson(authPerson,placeName, new FirebaseAuthorizedPersonHelper.DataStatus() {
                             @Override
-                            public void DataIsLoaded(List<AuthorizedPerson> productsList, List<String> keys) {
+                            public void DataIsLoaded(List<AuthorizedPerson> authorizedPeopleList, List<String> keys) {
                             }
 
                             @Override
@@ -118,7 +116,7 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
                             @Override
                             public void DataIsInserted() {
 
-                                Toast.makeText(AddAuthorizedPersonActivity.this, "התווסף בהצלחה", Toast.LENGTH_LONG).show();
+                                Toast.makeText(AddAuthorizedPersonActivity.this, "Added successfully", Toast.LENGTH_LONG).show();
                                 finish();
                                 return;
 
@@ -136,7 +134,7 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
                         });
                     } else { // update
                         String id_new = IDNumber.getText().toString();
-                        new FirebaseAuthorizedPersonHelper().updateAuthPerson(id_new, authPerson, new FirebaseAuthorizedPersonHelper.DataStatus() {
+                        new FirebaseAuthorizedPersonHelper().updateAuthPerson(id_new,placeName, authPerson, new FirebaseAuthorizedPersonHelper.DataStatus() {
                             @Override
                             public void DataIsLoaded(List<AuthorizedPerson> authorizedPersonList, List<String> keys) {
 
@@ -154,7 +152,7 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
 
                             @Override
                             public void DataIsUpdated() {
-                                Toast.makeText(AddAuthorizedPersonActivity.this, "התעדכן בהצלחה", Toast.LENGTH_LONG).show();
+                                Toast.makeText(AddAuthorizedPersonActivity.this, "Updated successfully", Toast.LENGTH_LONG).show();
                                 finish();
                                 return;
                             }
@@ -175,7 +173,7 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
 
         inProgress(true);
 
-        DatabaseReference reference = firebaseDatabase.getReference("Places").child(id_number);
+        DatabaseReference reference = firebaseDatabase.getReference("Places").child(placeName).child("Authorized People").child(id_number);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -226,49 +224,45 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
 
     private  boolean isEmpty () {
         if (TextUtils.isEmpty(LPNumber.getText().toString())) {
-            Toast.makeText(this, "לא הוכנס LP", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "LP was not typed", Toast.LENGTH_SHORT).show();
             return true;
         }
 
         if (TextUtils.isEmpty(employeeNumber.getText().toString())) {
-            Toast.makeText(this, "לא הוכנס employee", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Employee number was not typed", Toast.LENGTH_SHORT).show();
             return true;
         }
 
         if (TextUtils.isEmpty(IDNumber.getText().toString())) {
-            Toast.makeText(this, "לא הוכנס ID", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ID number was not typed", Toast.LENGTH_SHORT).show();
             return true;
         }
 
         if (TextUtils.isEmpty(firstName.getText().toString())) {
-            Toast.makeText(this, "לא הוכנס שם פרטי", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "First name was not typed", Toast.LENGTH_SHORT).show();
             return true;
         }
 
         if (TextUtils.isEmpty(urlImage.getText().toString())) {
-            Toast.makeText(this, "לא הוכנסה תמונה", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Url image was not typed", Toast.LENGTH_SHORT).show();
             return true;
         }
 
         if (TextUtils.isEmpty(lastName.getText().toString())) {
-            Toast.makeText(this, "לא הוכנס שם משפחה", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Last Name was not typed", Toast.LENGTH_SHORT).show();
             return true;
         }
 
         return false;
     }
 
-//    private void setPlaceName() {
-//        new FirebaseUserHelper().readUser(new FirebaseUserHelper.DataStatusUser() {
-//            @Override
-//            public void DataIsLoaded(User userHelper, String key) {
-//                User adminUser = (User) userHelper;
-//                String placeName = adminUser.getCompanyName();
-//                employeeNumber.setText(placeName);
-//                employeeNumber.setFocusable(false); // unable change the company name
-//
-//
-//            }
-//        });
-//    }
+    private void setPlaceName() {
+        new FirebaseUserHelper().readUser(new FirebaseUserHelper.DataStatusUser() {
+            @Override
+            public void DataIsLoaded(User userHelper, String key) {
+                User adminUser = (User) userHelper;
+                placeName = adminUser.getName();
+            }
+        });
+    }
 }
