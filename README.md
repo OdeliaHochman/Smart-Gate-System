@@ -25,4 +25,6 @@ The human guard rarely has to manage the visitor entry manually only in case whe
 
 ## Poster
 
-<img src="Documents/Poster.JPG" >
+<img src="Documents/Poster.JPG" width="700" >
+
+<img src="Images/Hardware Image.JPG"  width="700" height="400" >
