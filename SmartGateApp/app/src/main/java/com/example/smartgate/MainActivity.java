@@ -1,6 +1,5 @@
 package com.example.smartgate;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -22,9 +21,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        v_image.setImageDrawable(getResources().getDrawable(R.drawable.checked));
-        x_image.setImageDrawable(getResources().getDrawable(R.drawable.close));
+//        v_image = (ImageView) findViewById(R.id.imageView); //change
+//        x_image = (ImageView) findViewById(R.id.imageView);
+//        v_image.setBackgroundResource(R.drawable.checked);
+//        x_image.setBackgroundResource(R.drawable.close);
+//        v_image.setImageDrawable(getResources().getDrawable(R.drawable.checked));
+//        x_image.setImageDrawable(getResources().getDrawable(R.drawable.close));
 
         faceImage = (ImageView)findViewById(R.id.face_image);
         lpImage = (ImageView)findViewById(R.id.lp_image);
@@ -32,14 +34,14 @@ public class MainActivity extends AppCompatActivity {
         vx_lpImage = (ImageView)findViewById(R.id.vx_pl);
 
 
-        if(vx_faceImage.equals(v_image) && vx_lpImage.equals(v_image))
-        {
-            openSuccessDialog();
-        }
-        else
-        {
-            openFailsDialog();
-        }
+//        if(vx_faceImage.equals(v_image) && vx_lpImage.equals(v_image))
+//        {
+//            openSuccessDialog();
+//        }
+//        else
+//        {
+//            openFailsDialog();
+//        }
 
     }
 
