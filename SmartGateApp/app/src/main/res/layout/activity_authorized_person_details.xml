@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/grey_background">
 
 
     <ImageView
@@ -13,7 +14,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:scaleType="fitXY"
-        android:src="@drawable/back2"
+        android:src="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.908"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,71 +38,169 @@
         app:layout_constraintVertical_bias="0.047" />
 
     <TextView
-        android:id="@+id/first_name_Adetails"
+        android:id="@+id/first_name_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="98dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="15dp"
-        android:text="First Name"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="5dp"
+        android:text="First Name:"
+        android:textColor="@color/gray"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/last_name_Adetails"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/last_name_text"
+        app:layout_constraintEnd_toStartOf="@+id/first_name_Adetails"
         app:layout_constraintStart_toEndOf="@+id/authperson_image_Adetails"
-        app:layout_constraintTop_toBottomOf="@+id/bgapp1_details"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/bgapp1_details" />
 
     <TextView
-        android:id="@+id/id_Adetails"
+        android:id="@+id/employee_number_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="472dp"
-        android:text="ID Number"
-        android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/last_name_Adetails" />
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="5dp"
+        android:text="Employee Number:"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/lp_number_text"
+        app:layout_constraintEnd_toStartOf="@+id/employee_number_Adetails"
+        app:layout_constraintStart_toEndOf="@+id/authperson_image_Adetails"
+        app:layout_constraintTop_toBottomOf="@+id/id_number_text" />
 
     <TextView
         android:id="@+id/employee_number_Adetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="432dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="271dp"
+        android:layout_marginBottom="5dp"
         android:text="Employee Number"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/lp_number_details"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/employee_number_text"
         app:layout_constraintTop_toBottomOf="@+id/id_Adetails" />
 
+
     <TextView
-        android:id="@+id/product_details_name_Adetails"
+        android:id="@+id/id_Adetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="100dp"
-        android:text="autho person details"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="395dp"
+        android:layout_marginBottom="5dp"
+        android:text="ID Number"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/employee_number_Adetails"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.354"
+        app:layout_constraintStart_toEndOf="@+id/id_number_text"
+        app:layout_constraintTop_toBottomOf="@+id/last_name_Adetails" />
+
+    <TextView
+        android:id="@+id/id_number_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="5dp"
+        android:text="ID Number:"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/employee_number_text"
+        app:layout_constraintEnd_toStartOf="@+id/id_Adetails"
+        app:layout_constraintStart_toEndOf="@+id/authperson_image_Adetails"
+        app:layout_constraintTop_toBottomOf="@+id/last_name_text" />
+
+    <TextView
+        android:id="@+id/lp_number_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="206dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="35dp"
+        android:text="License plate Number:"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnUpdateProDet"
+        app:layout_constraintEnd_toStartOf="@+id/lp_number_details"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lp_number_details" />
+        app:layout_constraintTop_toBottomOf="@+id/employee_number_text" />
+
+    <TextView
+        android:id="@+id/lp_number_details"
+        android:layout_width="118dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="286dp"
+        android:layout_marginBottom="45dp"
+        android:text="LP number"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnDeleteProDet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lp_number_text"
+        app:layout_constraintTop_toBottomOf="@+id/employee_number_Adetails" />
+
+    <TextView
+        android:id="@+id/first_name_Adetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="395dp"
+        android:layout_marginBottom="5dp"
+        android:text="First Name"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/last_name_Adetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/first_name_text"
+        app:layout_constraintTop_toBottomOf="@+id/bgapp1_details" />
 
     <TextView
         android:id="@+id/last_name_Adetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="362dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="395dp"
+        android:layout_marginBottom="5dp"
         android:text="Last Name"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/id_Adetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/last_name_text"
+        app:layout_constraintTop_toBottomOf="@+id/first_name_Adetails" />
+
+    <TextView
+        android:id="@+id/last_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="5dp"
+        android:text="Last Name:"
+        android:textColor="@color/gray"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnUpdateProDet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toEndOf="@+id/first_name_Adetails" />
+        app:layout_constraintBottom_toTopOf="@+id/id_number_text"
+        app:layout_constraintEnd_toStartOf="@+id/last_name_Adetails"
+        app:layout_constraintStart_toEndOf="@+id/authperson_image_Adetails"
+        app:layout_constraintTop_toBottomOf="@+id/first_name_text" />
 
     <ImageView
         android:id="@+id/authperson_image_Adetails"
@@ -111,19 +210,8 @@
         android:layout_marginTop="19dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bgapp1_details"
+        android:textColor="@color/gray"
         app:srcCompat="@android:drawable/sym_def_app_icon" />
-
-    <TextView
-        android:id="@+id/lp_number_details"
-        android:layout_width="93dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginBottom="13dp"
-        android:text="LP number"
-        app:layout_constraintBottom_toTopOf="@+id/product_details_name_Adetails"
-        app:layout_constraintStart_toEndOf="@+id/authperson_image_Adetails"
-        app:layout_constraintTop_toBottomOf="@+id/employee_number_Adetails" />
 
     <Button
         android:id="@+id/btnDeleteProDet"
@@ -132,7 +220,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginEnd="41dp"
         android:layout_marginBottom="24dp"
-        android:backgroundTint="#D0FDAD39"
+        android:backgroundTint="#EC1010"
         android:text="Delete Details"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textStyle="bold"
@@ -147,15 +235,13 @@
         android:layout_marginStart="43dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="24dp"
-        android:backgroundTint="#D0FDAD39"
+        android:backgroundTint="#D025FA0D"
         android:text="Update Details"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnDeleteProDet"
         app:layout_constraintStart_toStartOf="parent" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

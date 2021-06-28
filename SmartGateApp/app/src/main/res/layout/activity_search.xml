@@ -4,26 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/lightgray"
     tools:context=".SearchActivity">
 
-
-    <ImageView
-        android:id="@+id/clover"
-        android:layout_width="132dp"
-        android:layout_height="114dp"
-        android:elevation="6dp"
-        android:src="@drawable/clover"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/bgapp1"
         android:layout_width="827dp"
         android:layout_height="113dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:scaleType="fitXY"
-        android:src="@drawable/back2"
+        android:src="@drawable/lightgray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.908"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,11 +31,12 @@
 
         <SearchView
             android:id="@+id/searchLine"
-            android:layout_width="715dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:iconifiedByDefault="false"
-            android:queryHint="Search by name or license plate number" />
+            android:queryHint="Search by name or license plate number"
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/btnSearch"
@@ -87,7 +78,7 @@
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
         android:src="@drawable/ic_add_black_24dp"
-        app:backgroundTint="#f8bb07"
+        app:backgroundTint="#616C64"
         app:elevation="6dp"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="@+id/topPageSearch"
