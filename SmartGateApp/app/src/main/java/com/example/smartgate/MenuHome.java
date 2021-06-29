@@ -89,8 +89,6 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener,
                 public void DataIsLoaded(User userHelper, String key) {
                     User adminUser = (User) userHelper;
                     adminCode = adminUser.getAdminCode();
-                    Log.d("admin code",adminCode);
-                    Log.d("dialog code",codeFromDialog);
                 }
             });
 

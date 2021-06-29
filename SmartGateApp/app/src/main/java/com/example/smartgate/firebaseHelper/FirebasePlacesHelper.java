@@ -14,6 +14,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class FirebasePlacesHelper
 {
@@ -45,8 +46,9 @@ public class FirebasePlacesHelper
                 List<String> authpeople_IDs = new ArrayList<>();
                 for(DataSnapshot keyNode:dataSnapshot.getChildren())
                 {
-                    authpeople_IDs.add(keyNode.getValue(String.class));
-
+                    //Map<String, Object> map = (Map<String, Object>) keyNode.getValue();
+                    //authpeople_IDs.add(keyNode.getValue(String.class));
+                    authpeople_IDs.add(keyNode.getKey());
                 }
                 dataStatus.DataIsLoaded(authpeople_IDs);
 

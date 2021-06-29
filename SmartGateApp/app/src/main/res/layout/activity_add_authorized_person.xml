@@ -87,7 +87,7 @@
                 android:layout_margin="8dp"
                 android:gravity="left"
                 android:hint="ID Number"
-                android:inputType="number"
+                android:inputType="text"
                 android:textColor="@color/gray"
                 android:textColorHint="@color/gray" />
 
