@@ -30,6 +30,7 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private AuthorizedPerson authorizedPerson;
     private String placeName;
+    private User adminUser;
 
 
     @Override
@@ -50,7 +51,7 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
 
 
 
-        new FirebaseAuthorizedPersonHelper().readOneAuthPerson(IDNumberS, placeName,new FirebaseAuthorizedPersonHelper.DataStatus() {
+        new FirebaseAuthorizedPersonHelper().readOneAuthPerson(IDNumberS,placeName,new FirebaseAuthorizedPersonHelper.DataStatus() {
             @Override
             public void DataIsLoaded(List<AuthorizedPerson> authorizedPeopleList, List<String> keys) {
 
@@ -189,7 +190,7 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
         new FirebaseUserHelper().readUser(new FirebaseUserHelper.DataStatusUser() {
             @Override
             public void DataIsLoaded(User userHelper, String key) {
-                User adminUser = (User) userHelper;
+                adminUser = (User) userHelper;
                 placeName = adminUser.getName();
             }
         });

@@ -29,6 +29,12 @@
             android:screenOrientation="landscape"/>
         <activity android:name=".SearchActivity"
             android:screenOrientation="landscape"/>
+        <activity android:name=".AddAuthorizedPersonActivity"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".UpdateAuthorizedPersonActivity"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".AuthorizedPersonDetailsActivity"
+            android:screenOrientation="landscape"/>
 
         <meta-data
             android:name="preloaded_fonts"

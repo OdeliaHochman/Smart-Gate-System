@@ -39,6 +39,7 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
     private AuthorizedPerson authorizedPerson;
     private boolean update=false;
     private String placeName;
+    private User adminUser;
 
 
 
@@ -152,8 +153,8 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
         new FirebaseUserHelper().readUser(new FirebaseUserHelper.DataStatusUser() {
             @Override
             public void DataIsLoaded(User userHelper, String key) {
-                User repUser = (User) userHelper;
-                placeName = repUser.getName();
+                adminUser = (User) userHelper;
+                placeName = adminUser.getName();
             }
         });
     }

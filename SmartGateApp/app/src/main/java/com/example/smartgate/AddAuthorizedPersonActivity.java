@@ -39,6 +39,7 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private boolean isAdd=true; // if this add new or edit
     private String placeName;
+    private User adminUser;
 
 
     @Override
@@ -262,7 +263,7 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
         new FirebaseUserHelper().readUser(new FirebaseUserHelper.DataStatusUser() {
             @Override
             public void DataIsLoaded(User userHelper, String key) {
-                User adminUser = (User) userHelper;
+                adminUser = (User) userHelper;
                 placeName = adminUser.getName();
             }
         });

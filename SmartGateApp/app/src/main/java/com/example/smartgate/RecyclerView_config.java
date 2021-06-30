@@ -2,6 +2,7 @@ package com.example.smartgate;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smartgate.dataObject.AuthorizedPerson;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
@@ -54,7 +58,9 @@ public class RecyclerView_config implements Serializable {
             mIDNumber =(TextView)itemView.findViewById(R.id.id_number);
             personIm = (ImageView)itemView.findViewById(R.id.imageView_authPeopleList);
 
+            itemView.setOnClickListener(AuthPersonItemView.this);
         }
+
 
         public void bind(AuthorizedPerson authorizedPerson , String IDNumber)
         {
@@ -69,7 +75,7 @@ public class RecyclerView_config implements Serializable {
         @Override
         public void onClick(View v) {
 
-            if ( v== itemView){
+            if ( v == itemView){
                 Intent intent = new Intent(mContext, AuthorizedPersonDetailsActivity.class);
 
                 intent.putExtra("First Name", mFirstName.getText().toString());
@@ -80,6 +86,7 @@ public class RecyclerView_config implements Serializable {
 
             }
         }
+
     }
 
     class AuthPeopleAdapter extends  RecyclerView.Adapter<AuthPersonItemView>
