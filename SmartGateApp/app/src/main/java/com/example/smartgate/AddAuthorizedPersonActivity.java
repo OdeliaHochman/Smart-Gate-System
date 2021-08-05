@@ -58,6 +58,7 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
         btnSave = findViewById(R.id.save_button);
         mProgressBar= findViewById(R.id.progressBar_add_authpersonID);
         setPlaceName();
+        placeName = "Place1";
 
         if (id_number != null) { // if you get from update page
             isAdd=false;

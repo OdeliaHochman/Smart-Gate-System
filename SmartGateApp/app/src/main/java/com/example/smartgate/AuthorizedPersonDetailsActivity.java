@@ -8,9 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.smartgate.dataObject.AuthorizedPerson;
 import com.example.smartgate.dataObject.User;
 import com.example.smartgate.firebaseHelper.FirebaseAuthorizedPersonHelper;
@@ -18,7 +16,6 @@ import com.example.smartgate.firebaseHelper.FirebasePlacesHelper;
 import com.example.smartgate.firebaseHelper.FirebaseUserHelper;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
-
 import java.util.List;
 
 public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
@@ -33,12 +30,15 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
     private User adminUser;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authorized_person_details);
         firebaseDatabase = FirebaseDatabase.getInstance();
         IDNumberS = getIntent().getStringExtra("ID Number"); // get id from listview
+        setPlaceName();
 
         lastName = (TextView) findViewById(R.id.last_name_Adetails);
         firstName = (TextView) findViewById(R.id.first_name_Adetails);
@@ -46,9 +46,6 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
         IDNumber = (TextView) findViewById(R.id.id_Adetails);
         authPersonImage = (ImageView)findViewById(R.id.authperson_image_Adetails);
         LPNumber = (TextView) findViewById(R.id.lp_number_details);
-        setPlaceName();
-
-
 
 
         new FirebaseAuthorizedPersonHelper().readOneAuthPerson(IDNumberS,placeName,new FirebaseAuthorizedPersonHelper.DataStatus() {
@@ -194,6 +191,7 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
                 placeName = adminUser.getName();
             }
         });
+
     }
 
 }

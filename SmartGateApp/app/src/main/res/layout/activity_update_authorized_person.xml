@@ -41,11 +41,13 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="825dp"
-        android:layout_height="318dp"
+        android:layout_width="765dp"
+        android:layout_height="311dp"
+        android:layout_marginStart="58dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bgapp1_update">
 
         <LinearLayout
