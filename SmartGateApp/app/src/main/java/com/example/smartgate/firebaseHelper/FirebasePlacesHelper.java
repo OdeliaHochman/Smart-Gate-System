@@ -1,5 +1,7 @@
 package com.example.smartgate.firebaseHelper;
 
+
+
 import androidx.annotation.NonNull;
 
 
@@ -12,7 +14,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +25,7 @@ public class FirebasePlacesHelper
     private FirebaseDatabase cDatabase;
     private DatabaseReference cReference;
     private User user;
+    private boolean flag = false;
 
 
 
@@ -80,6 +85,63 @@ public class FirebasePlacesHelper
                 dataStatus.DataIsDeleted();
             }
         });
+    }
+
+
+
+    public void addTimeAndDateToFB(String LPNumber,String placeName, final DataStatus dataStatus)
+    {
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormatDate = new SimpleDateFormat("dd-MMM-yyyy");
+        String date = simpleDateFormatDate.format(calendar.getTime());
+        SimpleDateFormat simpleDateFormatTime = new SimpleDateFormat("hh-mm-ss");
+        String time = simpleDateFormatTime.format(calendar.getTime());
+
+        cReference.child(placeName).child("Realtime").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot keyNode:dataSnapshot.getChildren())
+                {
+                    if(keyNode.getKey().equals(date))
+                    {
+                        flag = true;
+                        continue;
+                    }
+
+                }
+
+                if(!flag)
+                {
+                    cReference.child(placeName).child("Realtime").setValue(date).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            dataStatus.DataIsInserted();
+                        }
+                    });
+                }
+
+                cReference.child(placeName).child("Realtime").child(date).setValue(time).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        dataStatus.DataIsInserted();
+                    }
+                });
+                cReference.child(placeName).child("Realtime").child(date).child(time).setValue(LPNumber).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        dataStatus.DataIsInserted();
+                    }
+                });
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
 

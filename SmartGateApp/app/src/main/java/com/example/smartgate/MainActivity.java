@@ -3,8 +3,14 @@ package com.example.smartgate;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
+
+import com.example.smartgate.dataObject.User;
 import com.example.smartgate.dialogs.FailsDialog_Main;
 import com.example.smartgate.dialogs.SuccessDialog;
+import com.example.smartgate.firebaseHelper.FirebasePlacesHelper;
+import com.example.smartgate.firebaseHelper.FirebaseUserHelper;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,12 +20,15 @@ public class MainActivity extends AppCompatActivity {
     private ImageView vx_lpImage;
     private ImageView faceImage;
     private ImageView lpImage;
+    private String placeName , LPNumber;
+    private User adminUser;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setPlaceName();
 
 //        v_image = (ImageView) findViewById(R.id.imageView); //change
 //        x_image = (ImageView) findViewById(R.id.imageView);
@@ -43,6 +52,31 @@ public class MainActivity extends AppCompatActivity {
 //            openFailsDialog();
 //        }
 
+      //  LPNumber = We need to get the value of the license plate number from Python after image processing.
+
+//        new FirebasePlacesHelper().addTimeAndDateToFB(LPNumber, placeName, new FirebasePlacesHelper.DataStatus() {
+//            @Override
+//            public void DataIsLoaded(List<String> list) {
+//
+//            }
+//
+//            @Override
+//            public void DataIsInserted() {
+//
+//            }
+//
+//            @Override
+//            public void DataIsUpdated() {
+//
+//            }
+//
+//            @Override
+//            public void DataIsDeleted() {
+//
+//            }
+//        });
+
+
     }
 
 
@@ -57,5 +91,15 @@ public class MainActivity extends AppCompatActivity {
     {
         FailsDialog_Main failsDialogMain = new FailsDialog_Main();
         failsDialogMain.show(getSupportFragmentManager(), "fails dialog");
+    }
+
+    private void setPlaceName() {
+        new FirebaseUserHelper().readUser(new FirebaseUserHelper.DataStatusUser() {
+            @Override
+            public void DataIsLoaded(User userHelper, String key) {
+                adminUser = (User) userHelper;
+                placeName = adminUser.getName();
+            }
+        });
     }
 }
