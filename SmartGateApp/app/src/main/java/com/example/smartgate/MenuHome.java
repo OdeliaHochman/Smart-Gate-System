@@ -21,7 +21,6 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MenuHome extends AppCompatActivity implements View.OnClickListener, AdminDialog.ExampleDialogListener {
 
     private ImageView mainScreenI, driversDetailsVerificationI, infoForManagerI, logOutI;
-    private ImageView bgapp, clover;
     private LinearLayout textsplash, menus;
     private Animation frombottom;
     private User user;
@@ -35,15 +34,11 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener,
 
 
         frombottom = AnimationUtils.loadAnimation(this, R.anim.frombottom);
-       // bgapp = (ImageView) findViewById(R.id.bgapp);
-        //clover = (ImageView) findViewById(R.id.clover);
         textsplash = (LinearLayout) findViewById(R.id.textsplash);
         menus = (LinearLayout) findViewById(R.id.menus);
 
-       // setCompanyName();
+       //setPlaceName();
 
-        //bgapp.animate().translationY(-1900).setDuration(800).setStartDelay(400);
-     //   clover.animate().alpha(0).setDuration(800).setStartDelay(700);
         textsplash.animate().translationY(140).alpha(0).setDuration(800).setStartDelay(400);
 
 
@@ -82,29 +77,33 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener,
             startActivity(intent);
         }
         if (infoForManagerI == v) {
-            openDialog();
-
-            new FirebaseUserHelper().readUser(new FirebaseUserHelper.DataStatusUser() {
-                @Override
-                public void DataIsLoaded(User userHelper, String key) {
-                    User adminUser = (User) userHelper;
-                    adminCode = adminUser.getAdminCode();
-                }
-            });
-
-            if(adminCode == codeFromDialog)
-            {
-                Intent intent = new Intent(this, SearchActivity.class);
-                startActivity(intent);
-            }
-            else
-            {
-                Toast.makeText(this, " Invalid code", Toast.LENGTH_LONG).show();
-                finish();
-                return;
-            }
-
+            Intent intent = new Intent(this, SearchActivity.class);
+            startActivity(intent);
         }
+//        if (infoForManagerI == v) {
+//            openDialog();
+//
+//            new FirebaseUserHelper().readUser(new FirebaseUserHelper.DataStatusUser() {
+//                @Override
+//                public void DataIsLoaded(User userHelper, String key) {
+//                    User adminUser = (User) userHelper;
+//                    adminCode = adminUser.getAdminCode();
+//                }
+//            });
+//
+//            if(adminCode == codeFromDialog)
+//            {
+//                Intent intent = new Intent(this, SearchActivity.class);
+//                startActivity(intent);
+//            }
+//            else
+//            {
+//                Toast.makeText(this, " Invalid code", Toast.LENGTH_LONG).show();
+//                finish();
+//                return;
+//            }
+//
+//        }
 
     }
 
@@ -120,17 +119,14 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener,
     }
 
 /*
-    private void setCompanyName() {
+    private void setPlaceName() {
 
         new FirebaseUserHelper().readUser(new FirebaseUserHelper.DataStatusUser() {
             @Override
-            public void DataIsLoaded(User companyUser, String key) {
-                String name = companyUser.getName();
+            public void DataIsLoaded(User placeUser, String key) {
+                String name = placeUser.getName();
                 String helloTxt = getString(R.string.Hello);
-                String companyTxt = getString(R.string.Company);
-
-                nameTextView.setText(helloTxt);
-                companyTextView.setText(companyTxt + " " + name);
+                String placeTxt = getString(R.string.Company);
             }
         });
     }
