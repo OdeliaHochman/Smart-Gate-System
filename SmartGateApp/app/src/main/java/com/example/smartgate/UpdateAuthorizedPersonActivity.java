@@ -73,8 +73,7 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
 
 
         setPlaceName();
-        //placeName = "Place1";
-        System.out.println("id:"+id);
+
 
         if (id != null) { // if you get from update page
             isAdd=false;

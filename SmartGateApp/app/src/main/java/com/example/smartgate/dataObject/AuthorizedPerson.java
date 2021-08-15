@@ -75,4 +75,7 @@ public class AuthorizedPerson implements Serializable {
     public VideoView getVideoView() { return videoView; }
 
     public void setVideoView(VideoView videoView ) { this.videoView = videoView; }
+
+    public void setIDNumber(String IDNumber) {  this.IDNumber = IDNumber;
+    }
 }

@@ -95,30 +95,33 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
                     authPerson.setFirstName(firstName.getText().toString());
                     authPerson.setLastName(lastName.getText().toString());
                     authPerson.setUrlImage(urlImage.getText().toString());
+                    authPerson.setIDNumber(IDNumber.getText().toString());
 
                     if (isAdd) {
 
-                        new FirebasePlacesHelper().addAuthPersonOfPlace(authPerson,placeName, new FirebasePlacesHelper.DataStatus() {
-                            @Override
-                            public void DataIsLoaded(List<String> keys) {
-
-                            }
-
-                            @Override
-                            public void DataIsInserted() {
-
-                            }
-
-                            @Override
-                            public void DataIsUpdated() {
-
-                            }
-
-                            @Override
-                            public void DataIsDeleted() {
-
-                            }
-                        });
+//                        new FirebasePlacesHelper().addAuthPersonOfPlace(authPerson,placeName, new FirebasePlacesHelper.DataStatus() {
+//                            @Override
+//                            public void DataIsLoaded(List<String> keys) {
+//
+//                            }
+//
+//                            @Override
+//                            public void DataIsInserted() {
+//                                Toast.makeText(AddAuthorizedPersonActivity.this, "Added successfully", Toast.LENGTH_LONG).show();
+//                                finish();
+//                                return;
+//                            }
+//
+//                            @Override
+//                            public void DataIsUpdated() {
+//
+//                            }
+//
+//                            @Override
+//                            public void DataIsDeleted() {
+//
+//                            }
+//                        });
                         new FirebaseAuthorizedPersonHelper().addAuthPerson(authPerson,placeName, new FirebaseAuthorizedPersonHelper.DataStatus() {
                             @Override
                             public void DataIsLoaded(List<AuthorizedPerson> authorizedPeopleList, List<String> keys) {

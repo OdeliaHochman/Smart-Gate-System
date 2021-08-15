@@ -12,7 +12,6 @@
         android:id="@+id/addVideoBtn"
         android:layout_width="101dp"
         android:layout_height="53dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginBottom="180dp"
         android:backgroundTint="@android:color/holo_purple"
         android:text="Add Video"
@@ -20,6 +19,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/save_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.729"
+        app:layout_constraintStart_toEndOf="@+id/scrollView2"
         app:layout_constraintTop_toTopOf="@+id/scrollView2" />
 
     <ImageView
@@ -53,12 +54,14 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="777dp"
-        android:layout_height="311dp"
+        android:layout_width="503dp"
+        android:layout_height="309dp"
+        android:layout_marginEnd="176dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bgapp1_add">
+        app:layout_constraintTop_toBottomOf="@+id/bgapp1_add"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/linearLayout"
