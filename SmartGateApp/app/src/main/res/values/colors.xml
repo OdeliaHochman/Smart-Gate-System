@@ -8,6 +8,7 @@
     <color name="gray">#ededed</color>
     <color name="white">#ffffff</color>
     <color name="gray_dark">#bdb8bd</color>
+    <color name="colorGray">#eee</color>
     <color name="colorstatusbar">#FCB632</color>
 
 </resources>

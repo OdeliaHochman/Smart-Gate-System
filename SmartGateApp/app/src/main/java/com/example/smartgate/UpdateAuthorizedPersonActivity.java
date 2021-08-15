@@ -1,5 +1,6 @@
 package com.example.smartgate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +25,7 @@ import java.util.List;
 
 public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
 
-    private Button btnUpdate;
+    private Button btnUpdate,updateVideosBtn;
 
     private EditText IDNumber;
     private EditText firstName;
@@ -61,6 +62,16 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
         LPNumber = findViewById(R.id.updateLPNumber_editTxt);
         btnUpdate = findViewById(R.id.saveUpdate_button);
         mProgressBar= findViewById(R.id.progressBar_update_authpersonID);
+        updateVideosBtn = findViewById(R.id.addVideoBtn);
+
+        updateVideosBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(UpdateAuthorizedPersonActivity.this,AddVideoActivity.class));
+            }
+        });
+
+
         setPlaceName();
         //placeName = "Place1";
         System.out.println("id:"+id);

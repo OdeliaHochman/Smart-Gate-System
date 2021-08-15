@@ -8,13 +8,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.smartgate.dataObject.AuthorizedPerson;
+import com.example.smartgate.dataObject.ModelVideo;
 import com.example.smartgate.dataObject.User;
 import com.example.smartgate.firebaseHelper.FirebaseAuthorizedPersonHelper;
 import com.example.smartgate.firebaseHelper.FirebasePlacesHelper;
 import com.example.smartgate.firebaseHelper.FirebaseUserHelper;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 
@@ -28,6 +37,7 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
     private AuthorizedPerson authorizedPerson;
     private String placeName;
     private User adminUser;
+    private ModelVideo modelVideo;
 
 
 
@@ -111,6 +121,9 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
                         "Yes",
                         new DialogInterface.OnClickListener() {
                             public void onClick( final DialogInterface dialog, int id) {
+
+                                deleteVideo(modelVideo);
+
                                 // delete from authpeople tree
                                 new FirebaseAuthorizedPersonHelper().deleteAuthPerson(IDNumberS,placeName, new FirebaseAuthorizedPersonHelper.DataStatus() {
                                     @Override
@@ -181,6 +194,44 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
 
         });
 
+    }
+
+
+    private void deleteVideo(ModelVideo modelVideo)  // todo: change path
+    {
+        String videoId = modelVideo.getId();
+        String videoUrl = modelVideo.getVideoUrl();
+
+        //delete from FB storage
+        StorageReference reference = FirebaseStorage.getInstance().getReferenceFromUrl(videoUrl);
+        reference.delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Videos");
+                        databaseReference.child(videoId)
+                                .removeValue()
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(AuthorizedPersonDetailsActivity.this,"Video deleted successfuly...",Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(AuthorizedPersonDetailsActivity.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(AuthorizedPersonDetailsActivity.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     private void setPlaceName() {

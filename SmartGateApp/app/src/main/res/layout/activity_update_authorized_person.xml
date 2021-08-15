@@ -68,6 +68,7 @@
                 android:gravity="left"
                 android:hint="First Name"
                 android:inputType="text"
+                android:minHeight="48dp"
                 android:textColor="@color/gray"
                 android:textColorHint="@color/gray" />
 
@@ -80,6 +81,7 @@
                 android:gravity="left"
                 android:hint="Last Name"
                 android:inputType="text"
+                android:minHeight="48dp"
                 android:textColor="@color/gray"
                 android:textColorHint="@color/gray" />
 
@@ -91,6 +93,7 @@
                 android:gravity="left"
                 android:hint="ID Number"
                 android:inputType="text"
+                android:minHeight="48dp"
                 android:textColor="@color/gray"
                 android:textColorHint="@color/gray" />
 
@@ -102,6 +105,7 @@
                 android:gravity="left"
                 android:hint="Employee Number"
                 android:inputType="text"
+                android:minHeight="48dp"
                 android:textColor="@color/gray"
                 android:textColorHint="@color/gray" />
 
@@ -113,6 +117,7 @@
                 android:gravity="left"
                 android:hint="License Plate Number"
                 android:inputType="text"
+                android:minHeight="48dp"
                 android:textColor="@color/gray"
                 android:textColorHint="@color/gray" />
 
@@ -147,6 +152,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bgapp1_update" />
+
+    <Button
+        android:id="@+id/updateVideoBtn"
+        android:layout_width="101dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="180dp"
+        android:backgroundTint="@android:color/holo_purple"
+        android:text="Update Video"
+        android:textColor="@color/gray"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/saveUpdate_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/scrollView2" />
 
 
     <ProgressBar

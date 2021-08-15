@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.smartgate">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo"
@@ -9,32 +12,49 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="landscape">
+        <activity
+            android:name=".UpdateVideoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".DriversDetailsVerification"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".HostNavigationActivity"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".MainActivity"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".MenuHome"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".SearchActivity"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".AddAuthorizedPersonActivity"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".UpdateAuthorizedPersonActivity"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".AuthorizedPersonDetailsActivity"
-            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".DriversDetailsVerification"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".HostNavigationActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".MenuHome"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".SearchActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".AddAuthorizedPersonActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".UpdateAuthorizedPersonActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".AuthorizedPersonDetailsActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".VideosActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".AddVideoActivity"
+            android:screenOrientation="landscape" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -2,19 +2,16 @@ package com.example.smartgate;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smartgate.dataObject.User;
 import com.example.smartgate.dialogs.AdminDialog;
-import com.example.smartgate.firebaseHelper.FirebaseUserHelper;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -63,7 +60,7 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener,
 
         if (logOutI == v) {
             FirebaseAuth.getInstance().signOut();
-            Intent loginActivity = new Intent(getApplicationContext(), Login.class);
+            Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(loginActivity);
             finish();
         }
@@ -77,9 +74,14 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener,
             startActivity(intent);
         }
         if (infoForManagerI == v) {
-            Intent intent = new Intent(this, SearchActivity.class);
+            Intent intent = new Intent(this, VideosActivity.class);
             startActivity(intent);
         }
+
+//        if (infoForManagerI == v) {
+//            Intent intent = new Intent(this, SearchActivity.class);
+//            startActivity(intent);
+//        }
 //        if (infoForManagerI == v) {
 //            openDialog();
 //

@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-public class Login extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText EditTextEmail;
     private EditText EditTextPassword;
@@ -82,14 +81,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         firebaseAuth.signInWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
-                Toast.makeText(Login.this,"Login successfully", Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this,"Login successfully", Toast.LENGTH_LONG).show();
                 setUser();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 inProgress(false);
-                Toast.makeText(Login.this,"Login failed"+e.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this,"Login failed"+e.getMessage(), Toast.LENGTH_LONG).show();
 
             }
         });
@@ -130,7 +129,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                startActivity(new Intent(Login.this, HostNavigationActivity.class));
+                startActivity(new Intent(LoginActivity.this, HostNavigationActivity.class));
                 finish();
             }
 

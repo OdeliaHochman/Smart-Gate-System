@@ -65,7 +65,7 @@ public class HostNavigationActivity extends AppCompatActivity {
                 int id = menuItem.getItemId();
                 if (id == R.id.logout) {
                     FirebaseAuth.getInstance().signOut();
-                    Intent loginActivity = new Intent(getApplicationContext(), Login.class);
+                    Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(loginActivity);
                     finish();
                 }

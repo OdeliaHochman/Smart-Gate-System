@@ -1,5 +1,7 @@
 package com.example.smartgate.dataObject;
 
+import android.widget.VideoView;
+
 import java.io.Serializable;
 
 public class AuthorizedPerson implements Serializable {
@@ -10,6 +12,7 @@ public class AuthorizedPerson implements Serializable {
     private String IDNumber;
     private String LPNumber;
     private String urlImage;
+    private VideoView videoView;
 
 
 
@@ -17,13 +20,14 @@ public class AuthorizedPerson implements Serializable {
     public AuthorizedPerson() {
     }
 
-    public AuthorizedPerson(String firstName, String lastName,String IDNumber, String LPNumber, String employeeNumber,String urlImage) {
+    public AuthorizedPerson(String firstName, String lastName,String IDNumber, String LPNumber, String employeeNumber,String urlImage,VideoView videoView) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.IDNumber = IDNumber;
         this.LPNumber = LPNumber;
         this.employeeNumber = employeeNumber;
         this.urlImage = urlImage;
+        this.videoView = videoView;
 
     }
 
@@ -67,4 +71,8 @@ public class AuthorizedPerson implements Serializable {
     public String getUrlImage() { return urlImage; }
 
     public void setUrlImage(String urlImage) { this.urlImage = urlImage; }
+
+    public VideoView getVideoView() { return videoView; }
+
+    public void setVideoView(VideoView videoView ) { this.videoView = videoView; }
 }
