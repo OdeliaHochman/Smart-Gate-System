@@ -66,16 +66,16 @@ public class FirebasePlacesHelper
             }
         });
     }
-    public void addAuthPersonOfPlace(AuthorizedPerson authorizedPerson,String placeName, final DataStatus dataStatus)
-    {
-        String id = authorizedPerson.getIDNumber();
-        cReference.child(placeName).child("Authorized People").child(id).setValue(id).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                dataStatus.DataIsInserted();
-            }
-        });
-    }
+//    public void addAuthPersonOfPlace(AuthorizedPerson authorizedPerson,String placeName, final DataStatus dataStatus)
+//    {
+//        String id = authorizedPerson.getIDNumber();
+//        cReference.child(placeName).child("Authorized People").child(id).setValue(id).addOnSuccessListener(new OnSuccessListener<Void>() {
+//            @Override
+//            public void onSuccess(Void aVoid) {
+//                dataStatus.DataIsInserted();
+//            }
+//        });
+//    }
     public void deleteAuthPerson(AuthorizedPerson a ,String placeName, final DataStatus dataStatus)
     {
         String id = a.getIDNumber();
