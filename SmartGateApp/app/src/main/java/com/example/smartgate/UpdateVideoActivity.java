@@ -131,8 +131,6 @@ public class UpdateVideoActivity extends AppCompatActivity {
         });
 
 
-
-
     }
 
     private void uploadVideoFirebase()
@@ -142,7 +140,7 @@ public class UpdateVideoActivity extends AppCompatActivity {
         //timestamp
         String timestamp = ""+System.currentTimeMillis();
 
-        String filePathAndName = "Videos/" + "video_" + timestamp;     // to change?
+        String filePathAndName = "Videos/" + "video_" + timestamp;     // todo: to change!
         StorageReference storageReference = FirebaseStorage.getInstance().getReference(filePathAndName);
         storageReference.putFile(videoUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -307,6 +305,7 @@ public class UpdateVideoActivity extends AppCompatActivity {
                 assert modelVideo != null;
                 Uri modelVideoUri = Uri.parse(modelVideo.getVideoUrl());
                 videoView.setVideoURI(modelVideoUri);
+                videoUri = modelVideoUri;
             }
 
             @Override

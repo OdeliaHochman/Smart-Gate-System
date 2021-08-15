@@ -121,7 +121,7 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
                         "Yes",
                         new DialogInterface.OnClickListener() {
                             public void onClick( final DialogInterface dialog, int id) {
-
+                                // delete from "Videos" tree and from storage
                                 deleteVideo(modelVideo);
 
                                 // delete from authpeople tree
