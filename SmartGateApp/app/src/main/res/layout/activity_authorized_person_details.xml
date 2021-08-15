@@ -37,11 +37,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.047" />
 
+
     <TextView
         android:id="@+id/first_name_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="110dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
@@ -54,61 +55,44 @@
         app:layout_constraintStart_toEndOf="@+id/authperson_image_Adetails"
         app:layout_constraintTop_toBottomOf="@+id/bgapp1_details" />
 
-
     <TextView
-        android:id="@+id/employee_number_text"
+        android:id="@+id/last_name_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="10dp"
-        android:text="Employee Number:"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="Last Name:"
         android:textColor="@color/gray"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/lp_number_text"
-        app:layout_constraintEnd_toStartOf="@+id/employee_number_Adetails"
+        app:layout_constraintBottom_toTopOf="@+id/id_number_text"
+        app:layout_constraintEnd_toStartOf="@+id/last_name_Adetails"
         app:layout_constraintStart_toEndOf="@+id/authperson_image_Adetails"
-        app:layout_constraintTop_toBottomOf="@+id/id_number_text" />
+        app:layout_constraintTop_toBottomOf="@+id/first_name_text" />
 
     <TextView
-        android:id="@+id/employee_number_Adetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="271dp"
-        android:layout_marginBottom="10dp"
-        android:text="Employee Number"
-        android:textColor="@color/gray"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/lp_number_details"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/employee_number_text"
-        app:layout_constraintTop_toBottomOf="@+id/id_Adetails" />
-
-    <TextView
-        android:id="@+id/id_Adetails"
+        android:id="@+id/last_name_Adetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="404dp"
-        android:layout_marginBottom="10dp"
-        android:text="ID Number"
+        android:layout_marginEnd="350dp"
+        android:text="Last Name"
         android:textColor="@color/gray"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/employee_number_Adetails"
+        app:layout_constraintBottom_toTopOf="@+id/id_Adetails"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/id_number_text"
-        app:layout_constraintTop_toBottomOf="@+id/last_name_Adetails" />
+        app:layout_constraintStart_toEndOf="@+id/last_name_text"
+        app:layout_constraintTop_toBottomOf="@+id/first_name_Adetails" />
+
 
     <TextView
         android:id="@+id/id_number_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="140dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
@@ -122,11 +106,29 @@
         app:layout_constraintStart_toEndOf="@+id/authperson_image_Adetails"
         app:layout_constraintTop_toBottomOf="@+id/last_name_text" />
 
+
+    <TextView
+        android:id="@+id/id_Adetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="350dp"
+        android:layout_marginBottom="10dp"
+        android:text="ID Number"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/employee_number_Adetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/id_number_text"
+        app:layout_constraintTop_toBottomOf="@+id/last_name_Adetails" />
+
+
     <TextView
         android:id="@+id/lp_number_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="270dp"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="35dp"
@@ -136,9 +138,25 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnUpdateProDet"
         app:layout_constraintEnd_toStartOf="@+id/lp_number_details"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/authperson_image_Adetails"
         app:layout_constraintTop_toBottomOf="@+id/employee_number_text" />
+
+    <TextView
+        android:id="@+id/employee_number_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Employee Number:"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/lp_number_text"
+        app:layout_constraintEnd_toStartOf="@+id/employee_number_Adetails"
+        app:layout_constraintStart_toEndOf="@+id/authperson_image_Adetails"
+        app:layout_constraintTop_toBottomOf="@+id/id_number_text" />
 
     <TextView
         android:id="@+id/lp_number_details"
@@ -146,7 +164,7 @@
         android:layout_height="23dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="286dp"
+        android:layout_marginEnd="240dp"
         android:layout_marginBottom="40dp"
         android:text="LP number"
         android:textColor="@color/gray"
@@ -157,12 +175,28 @@
         app:layout_constraintTop_toBottomOf="@+id/employee_number_Adetails" />
 
     <TextView
+        android:id="@+id/employee_number_Adetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="230dp"
+        android:layout_marginBottom="10dp"
+        android:text="Employee Number"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/lp_number_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/employee_number_text"
+        app:layout_constraintTop_toBottomOf="@+id/id_Adetails" />
+
+    <TextView
         android:id="@+id/first_name_Adetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="404dp"
+        android:layout_marginEnd="350dp"
         android:text="First Name"
         android:textColor="@color/gray"
         android:textSize="20sp"
@@ -171,51 +205,18 @@
         app:layout_constraintStart_toEndOf="@+id/first_name_text"
         app:layout_constraintTop_toBottomOf="@+id/bgapp1_details" />
 
-    <TextView
-        android:id="@+id/last_name_Adetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="404dp"
-        android:text="Last Name"
-        android:textColor="@color/gray"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/id_Adetails"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/last_name_text"
-        app:layout_constraintTop_toBottomOf="@+id/first_name_Adetails" />
-
-    <TextView
-        android:id="@+id/last_name_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        android:text="Last Name:"
-        android:textColor="@color/gray"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/id_number_text"
-        app:layout_constraintEnd_toStartOf="@+id/last_name_Adetails"
-        app:layout_constraintStart_toEndOf="@+id/authperson_image_Adetails"
-        app:layout_constraintTop_toBottomOf="@+id/first_name_text" />
 
     <ImageView
         android:id="@+id/authperson_image_Adetails"
         android:layout_width="156dp"
         android:layout_height="143dp"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="19dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="79dp"
-        android:textColor="@color/gray"
+        android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toTopOf="@+id/btnUpdateProDet"
-        app:layout_constraintEnd_toStartOf="@+id/lp_number_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bgapp1_details"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
     <Button
