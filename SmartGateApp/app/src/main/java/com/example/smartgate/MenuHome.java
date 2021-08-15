@@ -73,15 +73,11 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener,
             Intent intent = new Intent(this, DriversDetailsVerification.class);
             startActivity(intent);
         }
+
         if (infoForManagerI == v) {
-            Intent intent = new Intent(this, VideosActivity.class);
+            Intent intent = new Intent(this, SearchActivity.class);
             startActivity(intent);
         }
-
-//        if (infoForManagerI == v) {
-//            Intent intent = new Intent(this, SearchActivity.class);
-//            startActivity(intent);
-//        }
 //        if (infoForManagerI == v) {
 //            openDialog();
 //

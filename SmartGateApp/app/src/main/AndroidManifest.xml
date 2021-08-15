@@ -50,9 +50,6 @@
             android:name=".AuthorizedPersonDetailsActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".VideosActivity"
-            android:screenOrientation="landscape" />
-        <activity
             android:name=".AddVideoActivity"
             android:screenOrientation="landscape" />
 
