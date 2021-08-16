@@ -12,9 +12,7 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".UpdateVideoActivity"
-            android:exported="true" />
+
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="landscape"
@@ -51,6 +49,9 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".AddVideoActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".UpdateVideoActivity"
             android:screenOrientation="landscape" />
 
         <meta-data

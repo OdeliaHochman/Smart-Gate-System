@@ -102,7 +102,9 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AuthorizedPersonDetailsActivity.this, UpdateAuthorizedPersonActivity.class);
+                //intent.putExtra("ID Number",IDNumberS);
                 intent.putExtra("ID Number",IDNumberS);
+                intent.putExtra("Place Name",placeName);
                 startActivity(intent);
                 finish();
             }
@@ -148,31 +150,12 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
 
                                     @Override
                                     public void DataIsDeleted() {
-
+                                        Toast.makeText(AuthorizedPersonDetailsActivity.this, " Deleted successfully", Toast.LENGTH_LONG).show();
+                                        finish();
+                                        return;
                                     }
                                 });
 
-                                new FirebasePlacesHelper().deleteAuthPerson(authorizedPerson,placeName, new FirebasePlacesHelper.DataStatus() {
-                                    @Override
-                                    public void DataIsLoaded(List<String> idList) {
-
-                                    }
-
-                                    @Override
-                                    public void DataIsInserted() {
-
-                                    }
-
-                                    @Override
-                                    public void DataIsUpdated() {
-
-                                    }
-
-                                    @Override
-                                    public void DataIsDeleted() {
-
-                                    }
-                                });
 
                             }
                         });

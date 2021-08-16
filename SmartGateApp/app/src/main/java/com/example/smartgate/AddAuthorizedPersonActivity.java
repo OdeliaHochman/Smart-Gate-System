@@ -67,10 +67,7 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
             }
         });
 
-
-
         setPlaceName();
-        //placeName = "Place1";
 
         if (id_number != null) { // if you get from update page
             isAdd=false;
@@ -99,29 +96,6 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
 
                     if (isAdd) {
 
-//                        new FirebasePlacesHelper().addAuthPersonOfPlace(authPerson,placeName, new FirebasePlacesHelper.DataStatus() {
-//                            @Override
-//                            public void DataIsLoaded(List<String> keys) {
-//
-//                            }
-//
-//                            @Override
-//                            public void DataIsInserted() {
-//                                Toast.makeText(AddAuthorizedPersonActivity.this, "Added successfully", Toast.LENGTH_LONG).show();
-//                                finish();
-//                                return;
-//                            }
-//
-//                            @Override
-//                            public void DataIsUpdated() {
-//
-//                            }
-//
-//                            @Override
-//                            public void DataIsDeleted() {
-//
-//                            }
-//                        });
                         new FirebaseAuthorizedPersonHelper().addAuthPerson(authPerson,placeName, new FirebaseAuthorizedPersonHelper.DataStatus() {
                             @Override
                             public void DataIsLoaded(List<AuthorizedPerson> authorizedPeopleList, List<String> keys) {

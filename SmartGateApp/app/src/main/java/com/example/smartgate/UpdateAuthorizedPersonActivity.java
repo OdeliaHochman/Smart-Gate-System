@@ -40,8 +40,6 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
     private AuthorizedPerson authorizedPerson;
     private boolean update=false;
     private String placeName;
-    private User adminUser;
-
 
 
     @Override
@@ -49,10 +47,8 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_authorized_person);
         firebaseDatabase = FirebaseDatabase.getInstance();
-        FirebaseDatabase cDatabase;
-        cDatabase =FirebaseDatabase.getInstance();
-        final FirebaseDatabase creference=FirebaseDatabase.getInstance();
         final String id = getIntent().getStringExtra("ID Number");
+        placeName = getIntent().getStringExtra("Place Name");
 
         IDNumber = findViewById(R.id.updateIDNumber_editTxt);
         firstName = findViewById(R.id.updateFirstName_editTxt);
@@ -71,8 +67,6 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
             }
         });
 
-
-        setPlaceName();
 
 
         if (id != null) { // if you get from update page
@@ -94,6 +88,7 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
                     authorizedPerson.setEmployeeNumber(employeeNumber.getText().toString());
                     authorizedPerson.setUrlImage(urlImage.getText().toString());
                     authorizedPerson.setLPNumber(LPNumber.getText().toString());
+                    authorizedPerson.setIDNumber(IDNumber.getText().toString());
 
 
                     String id_new = IDNumber.getText().toString();
@@ -161,13 +156,4 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
 
     }
 
-    private void setPlaceName () {
-        new FirebaseUserHelper().readUser(new FirebaseUserHelper.DataStatusUser() {
-            @Override
-            public void DataIsLoaded(User userHelper, String key) {
-                adminUser = (User) userHelper;
-                placeName = adminUser.getName();
-            }
-        });
-    }
 }
