@@ -12,7 +12,7 @@ public class AuthorizedPerson implements Serializable {
     private String IDNumber;
     private String LPNumber;
     private String urlImage;
-    private VideoView videoView;
+    private ModelVideo modelVideo;
 
 
 
@@ -20,14 +20,14 @@ public class AuthorizedPerson implements Serializable {
     public AuthorizedPerson() {
     }
 
-    public AuthorizedPerson(String firstName, String lastName,String IDNumber, String LPNumber, String employeeNumber,String urlImage,VideoView videoView) {
+    public AuthorizedPerson(String firstName, String lastName,String IDNumber, String LPNumber, String employeeNumber,String urlImage,ModelVideo modelVideo) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.IDNumber = IDNumber;
         this.LPNumber = LPNumber;
         this.employeeNumber = employeeNumber;
         this.urlImage = urlImage;
-        this.videoView = videoView;
+        this.modelVideo = modelVideo;
 
     }
 
@@ -72,9 +72,9 @@ public class AuthorizedPerson implements Serializable {
 
     public void setUrlImage(String urlImage) { this.urlImage = urlImage; }
 
-    public VideoView getVideoView() { return videoView; }
+    public ModelVideo getModelVideo() { return modelVideo; }
 
-    public void setVideoView(VideoView videoView ) { this.videoView = videoView; }
+    public void setModelView(ModelVideo modelVideo ) { this.modelVideo =modelVideo; }
 
     public void setIDNumber(String IDNumber) {  this.IDNumber = IDNumber;
     }
