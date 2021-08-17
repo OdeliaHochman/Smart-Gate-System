@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:hint="Enter Title"
         android:inputType="textPersonName|textCapSentences"
         android:minHeight="48dp"
         android:padding="10dp"

@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:background="@color/colorGray"
     android:padding="10dp"
-    tools:context=".UpdateVideoActivity">>
+    tools:context=".UpdateVideoActivity">
+
 
     <EditText
         android:id="@+id/titleEt_update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:hint="Enter Title"
         android:inputType="textPersonName|textCapSentences"
         android:minHeight="48dp"
         android:padding="10dp"

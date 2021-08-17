@@ -1,65 +1,62 @@
 package com.example.smartgate;
 
-        import androidx.activity.result.ActivityResult;
-        import androidx.activity.result.ActivityResultCallback;
-        import androidx.activity.result.ActivityResultLauncher;
-        import androidx.activity.result.contract.ActivityResultContracts;
-        import androidx.annotation.NonNull;
-        import androidx.appcompat.app.ActionBar;
-        import androidx.appcompat.app.AlertDialog;
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.core.app.ActivityCompat;
-        import androidx.core.content.ContextCompat;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import android.Manifest;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.MediaController;
+import android.widget.Toast;
+import android.widget.VideoView;
+import com.example.smartgate.dataObject.ModelVideo;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import java.util.HashMap;
 
-        import android.Manifest;
-        import android.app.Activity;
-        import android.app.ProgressDialog;
-        import android.content.DialogInterface;
-        import android.content.Intent;
-        import android.content.pm.PackageManager;
-        import android.media.MediaPlayer;
-        import android.net.Uri;
-        import android.os.Bundle;
-        import android.provider.MediaStore;
-        import android.text.TextUtils;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.EditText;
-        import android.widget.MediaController;
-        import android.widget.Toast;
-        import android.widget.VideoView;
 
-        import com.example.smartgate.dataObject.ModelVideo;
-        import com.google.android.gms.tasks.OnFailureListener;
-        import com.google.android.gms.tasks.OnSuccessListener;
-        import com.google.android.gms.tasks.Task;
-        import com.google.android.material.floatingactionbutton.FloatingActionButton;
-        import com.google.firebase.database.DataSnapshot;
-        import com.google.firebase.database.DatabaseError;
-        import com.google.firebase.database.DatabaseReference;
-        import com.google.firebase.database.FirebaseDatabase;
-        import com.google.firebase.database.ValueEventListener;
-        import com.google.firebase.storage.FirebaseStorage;
-        import com.google.firebase.storage.StorageReference;
-        import com.google.firebase.storage.UploadTask;
-        import java.util.HashMap;
 
 public class UpdateVideoActivity extends AppCompatActivity {
 
-    private ActionBar actionBar;
+
     private EditText titleEt;
     private VideoView videoView;
     private Button uploadVideoBtn;
     private FloatingActionButton pickVideoFab;
-    private static final int VIDEO_PICK_GALLERY_CODE =100;
-    private static final int VIDEO_PICK_CAMERA_CODE =101;
     private static final int CAMERA_REQUEST_CODE =102;
     private String[] cameraPermissions;
-    private String title;
     private Uri videoUri = null;
     private ProgressDialog progressDialog;
     private ActivityResultLauncher<Intent> resultLauncher;
     private ModelVideo modelVideo;
+    private String id_number,placeName;
 
 
 
@@ -67,18 +64,17 @@ public class UpdateVideoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_video);
+        id_number = getIntent().getStringExtra("ID Number");
+        placeName = getIntent().getStringExtra("Place Name");
 
-
-
-//        actionBar = getSupportActionBar();
-//        actionBar.setTitle("Add New Video");
-//        actionBar.setDisplayShowHomeEnabled(true); // add back button
-//        actionBar.setDisplayHomeAsUpEnabled(true);
 
         titleEt = findViewById(R.id.titleEt_update);
         videoView = findViewById(R.id.videoView_update);
         uploadVideoBtn = findViewById(R.id.uploadVideoBtn_update);
         pickVideoFab = findViewById(R.id.pickVideoFab_update);
+
+        titleEt.setText(id_number);
+        titleEt.setFocusable(false);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Please wait");
@@ -86,7 +82,6 @@ public class UpdateVideoActivity extends AppCompatActivity {
         progressDialog.setCanceledOnTouchOutside(false);
 
         cameraPermissions = new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        loadVideoFromFB();
 
         resultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -101,16 +96,12 @@ public class UpdateVideoActivity extends AppCompatActivity {
                     }
                 });
 
+        loadVideoFromFB();
 
         uploadVideoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                title = titleEt.getText().toString().trim();
-                if(TextUtils.isEmpty(title))
-                {
-                    Toast.makeText(UpdateVideoActivity.this,"Title is required...",Toast.LENGTH_SHORT).show();
-                }
-                else if(videoUri == null)
+                 if(videoUri == null)
                 {
                     Toast.makeText(UpdateVideoActivity.this,"Pick a video before you can upload..",Toast.LENGTH_SHORT).show();
                 }
@@ -140,7 +131,7 @@ public class UpdateVideoActivity extends AppCompatActivity {
         //timestamp
         String timestamp = ""+System.currentTimeMillis();
 
-        String filePathAndName = "Videos/" + "video_" + timestamp;     // todo: to change!
+        String filePathAndName = "Videos/" + "video_" + id_number;
         StorageReference storageReference = FirebaseStorage.getInstance().getReference(filePathAndName);
         storageReference.putFile(videoUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -153,13 +144,12 @@ public class UpdateVideoActivity extends AppCompatActivity {
                         if(uriTask.isSuccessful())
                         {
                             HashMap<String,Object> hashMap = new HashMap<>();
-                            hashMap.put("id",""+ timestamp);
-                            hashMap.put("title",""+ title);
+                            hashMap.put("id",""+ id_number);
                             hashMap.put("timestamp",""+ timestamp);
                             hashMap.put("videoUrl",""+ downloadUri);
 
-                            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Videos");   ///// TODO: change path!
-                            reference.child(timestamp)
+                            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Videos");
+                            reference.child("video_"+id_number)
                                     .setValue(hashMap)
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
@@ -167,6 +157,28 @@ public class UpdateVideoActivity extends AppCompatActivity {
                                             // video details added to db
                                             progressDialog.dismiss();
                                             Toast.makeText(UpdateVideoActivity.this,"Video uploaded...",Toast.LENGTH_SHORT).show();
+                                            finish();
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            progressDialog.dismiss();
+                                            Toast.makeText(UpdateVideoActivity.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
+
+                                        }
+                                    });
+                            DatabaseReference referenceAutoPerson = FirebaseDatabase.getInstance().getReference("Places").child(placeName)
+                                    .child("Authorized People").child(id_number);
+                            referenceAutoPerson.child("video_"+id_number)
+                                    .setValue(hashMap)
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            // video details added to db
+                                            progressDialog.dismiss();
+                                            Toast.makeText(UpdateVideoActivity.this,"Video uploaded...",Toast.LENGTH_SHORT).show();
+                                            finish();
                                         }
                                     })
                                     .addOnFailureListener(new OnFailureListener() {
@@ -240,7 +252,6 @@ public class UpdateVideoActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("video/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        //startActivityForResult(intent.createChooser(intent,"Select Videos"), VIDEO_PICK_GALLERY_CODE);
         resultLauncher.launch(intent.createChooser(intent,"Select Videos"));
     }
 
@@ -248,7 +259,6 @@ public class UpdateVideoActivity extends AppCompatActivity {
     private void videoPickCamera()
     {
         Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-        //startActivityForResult(intent,VIDEO_PICK_CAMERA_CODE);
         resultLauncher.launch(intent);
     }
 
@@ -295,17 +305,23 @@ public class UpdateVideoActivity extends AppCompatActivity {
     }
 
 
-    private void loadVideoFromFB()  ///// TODO: change path!
+    private void loadVideoFromFB()
     {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Videos");
-        reference.addValueEventListener(new ValueEventListener() {
+        //DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Videos");
+        DatabaseReference referenceAutoPerson = FirebaseDatabase.getInstance().getReference("Places").child(placeName)
+                .child("Authorized People").child(id_number).child("video_"+id_number);
+        referenceAutoPerson.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
                 modelVideo = datasnapshot.getValue(ModelVideo.class);
-                assert modelVideo != null;
-                Uri modelVideoUri = Uri.parse(modelVideo.getVideoUrl());
-                videoView.setVideoURI(modelVideoUri);
-                videoUri = modelVideoUri;
+                if(modelVideo != null)
+                {
+                    String videoUrl = modelVideo.getVideoUrl();
+                    Uri modelVideoUri = Uri.parse(videoUrl);
+                    videoView.setVideoURI(modelVideoUri);
+                    videoUri = modelVideoUri;
+                }
+
             }
 
             @Override

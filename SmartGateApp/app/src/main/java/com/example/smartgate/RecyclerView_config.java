@@ -81,7 +81,6 @@ public class RecyclerView_config implements Serializable {
                 intent.putExtra("First Name", mFirstName.getText().toString());
                 intent.putExtra("Last Name", mLastName.getText().toString());
                 intent.putExtra("ID Number", mIDNumber.getText().toString());
-
                 mContext.startActivity(intent);
 
             }

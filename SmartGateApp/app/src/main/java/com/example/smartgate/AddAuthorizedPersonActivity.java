@@ -58,16 +58,22 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
         lastName = findViewById(R.id.lastName_editTxt);
         btnSave = findViewById(R.id.save_button);
         mProgressBar= findViewById(R.id.progressBar_add_authpersonID);
-        addVideosBtn = findViewById(R.id.addVideoBtn);
-
-        addVideosBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(AddAuthorizedPersonActivity.this,AddVideoActivity.class));
-            }
-        });
+//        addVideosBtn = findViewById(R.id.addVideoBtn);
 
         setPlaceName();
+
+//        addVideosBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(AddAuthorizedPersonActivity.this, AddVideoActivity.class);
+//                intent.putExtra("ID Number",id_number);
+//                intent.putExtra("Place Name",placeName);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+
+
 
         if (id_number != null) { // if you get from update page
             isAdd=false;
@@ -110,6 +116,11 @@ public class AddAuthorizedPersonActivity extends AppCompatActivity {
                             public void DataIsInserted() {
 
                                 Toast.makeText(AddAuthorizedPersonActivity.this, "Added successfully", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(AddAuthorizedPersonActivity.this, AddVideoActivity.class);
+                                //intent.putExtra("ID Number",id_number);
+                                intent.putExtra("ID Number",IDNumber.getText().toString());
+                                intent.putExtra("Place Name",placeName);
+                                startActivity(intent);
                                 finish();
                                 return;
 

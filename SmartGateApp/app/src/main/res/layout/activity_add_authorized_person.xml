@@ -8,20 +8,20 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/addVideoBtn"
-        android:layout_width="101dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="180dp"
-        android:backgroundTint="@android:color/holo_purple"
-        android:text="Add Video"
-        android:textColor="@color/gray"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/save_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.729"
-        app:layout_constraintStart_toEndOf="@+id/scrollView2"
-        app:layout_constraintTop_toTopOf="@+id/scrollView2" />
+<!--    <Button-->
+<!--        android:id="@+id/addVideoBtn"-->
+<!--        android:layout_width="101dp"-->
+<!--        android:layout_height="53dp"-->
+<!--        android:layout_marginBottom="180dp"-->
+<!--        android:backgroundTint="@android:color/holo_purple"-->
+<!--        android:text="Add Video"-->
+<!--        android:textColor="@color/gray"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/save_button"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.729"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/scrollView2"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/scrollView2" />-->
 
     <ImageView
         android:id="@+id/bgapp1_add"

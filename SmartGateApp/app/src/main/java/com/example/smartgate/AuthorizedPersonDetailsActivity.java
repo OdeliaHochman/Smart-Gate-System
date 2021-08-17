@@ -47,7 +47,8 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authorized_person_details);
         firebaseDatabase = FirebaseDatabase.getInstance();
-        IDNumberS = getIntent().getStringExtra("ID Number"); // get id from listview
+        IDNumberS = getIntent().getStringExtra("ID Number");// get id from listview
+        //placeName = getIntent().getStringExtra("Place Name");
         setPlaceName();
 
         lastName = (TextView) findViewById(R.id.last_name_Adetails);
@@ -74,7 +75,7 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
                 IDNumber.setText(authorizedPerson.getIDNumber());
                 LPNumber.setText(authorizedPerson.getLPNumber());
                 Picasso.get().load(authorizedPerson.getUrlImage()).into(authPersonImage);
-
+                modelVideo = authorizedPerson.getModelVideo();
 
             }
 
@@ -102,7 +103,6 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AuthorizedPersonDetailsActivity.this, UpdateAuthorizedPersonActivity.class);
-                //intent.putExtra("ID Number",IDNumberS);
                 intent.putExtra("ID Number",IDNumberS);
                 intent.putExtra("Place Name",placeName);
                 startActivity(intent);
@@ -180,8 +180,9 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
     }
 
 
-    private void deleteVideo(ModelVideo modelVideo)  // todo: change path
+    private void deleteVideo(ModelVideo modelVideo)
     {
+
         String videoId = modelVideo.getId();
         String videoUrl = modelVideo.getVideoUrl();
 
@@ -192,7 +193,24 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Videos");
-                        databaseReference.child(videoId)
+                        databaseReference.child("video_"+videoId)
+                                .removeValue()
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(AuthorizedPersonDetailsActivity.this,"Video deleted successfuly...",Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(AuthorizedPersonDetailsActivity.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+                        DatabaseReference referenceAuthPerson = FirebaseDatabase.getInstance().getReference("Places").child(placeName)
+                                .child("Authorized People").child(videoId);
+                        referenceAuthPerson.child("video_"+videoId)
                                 .removeValue()
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override

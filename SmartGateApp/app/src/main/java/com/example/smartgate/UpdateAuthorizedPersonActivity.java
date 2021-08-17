@@ -39,7 +39,7 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
     private boolean isAdd=true; // if this add new or edit
     private AuthorizedPerson authorizedPerson;
     private boolean update=false;
-    private String placeName;
+    private String placeName,id;
 
 
     @Override
@@ -47,7 +47,7 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_authorized_person);
         firebaseDatabase = FirebaseDatabase.getInstance();
-        final String id = getIntent().getStringExtra("ID Number");
+        id = getIntent().getStringExtra("ID Number");
         placeName = getIntent().getStringExtra("Place Name");
 
         IDNumber = findViewById(R.id.updateIDNumber_editTxt);
@@ -58,12 +58,16 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
         LPNumber = findViewById(R.id.updateLPNumber_editTxt);
         btnUpdate = findViewById(R.id.saveUpdate_button);
         mProgressBar= findViewById(R.id.progressBar_update_authpersonID);
-        updateVideosBtn = findViewById(R.id.addVideoBtn);
+        updateVideosBtn = findViewById(R.id.updateVideoBtn);
 
         updateVideosBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UpdateAuthorizedPersonActivity.this,AddVideoActivity.class));
+                Intent intent = new Intent(UpdateAuthorizedPersonActivity.this, UpdateVideoActivity.class);
+                intent.putExtra("ID Number",id);
+                intent.putExtra("Place Name",placeName);
+                startActivity(intent);
+                finish();
             }
         });
 
