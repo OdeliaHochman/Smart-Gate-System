@@ -57,6 +57,7 @@ public class UpdateVideoActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> resultLauncher;
     private ModelVideo modelVideo;
     private String id_number,placeName;
+    private String videoUrl,videoUrl2;
 
 
 
@@ -190,6 +191,25 @@ public class UpdateVideoActivity extends AppCompatActivity {
                                         }
                                     });
 
+                            videoUrl2 = downloadUri.toString();
+                            if(!(videoUrl.equals(videoUrl2)))
+                            {
+                                StorageReference referenceVideoUrl = FirebaseStorage.getInstance().getReferenceFromUrl(videoUrl);
+                                referenceVideoUrl.delete()
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+
+                                            }
+                                        });
+                            }
+
                         }
                     }
                 })
@@ -307,7 +327,6 @@ public class UpdateVideoActivity extends AppCompatActivity {
 
     private void loadVideoFromFB()
     {
-        //DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Videos");
         DatabaseReference referenceAutoPerson = FirebaseDatabase.getInstance().getReference("Places").child(placeName)
                 .child("Authorized People").child(id_number).child("video_"+id_number);
         referenceAutoPerson.addValueEventListener(new ValueEventListener() {
@@ -316,7 +335,7 @@ public class UpdateVideoActivity extends AppCompatActivity {
                 modelVideo = datasnapshot.getValue(ModelVideo.class);
                 if(modelVideo != null)
                 {
-                    String videoUrl = modelVideo.getVideoUrl();
+                    videoUrl = modelVideo.getVideoUrl();
                     Uri modelVideoUri = Uri.parse(videoUrl);
                     videoView.setVideoURI(modelVideoUri);
                     videoUri = modelVideoUri;
