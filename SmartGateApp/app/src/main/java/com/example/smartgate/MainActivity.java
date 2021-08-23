@@ -3,6 +3,7 @@ package com.example.smartgate;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.smartgate.dataObject.User;
 import com.example.smartgate.dialogs.FailsDialog_Main;
@@ -37,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
 //        v_image.setImageDrawable(getResources().getDrawable(R.drawable.checked));
 //        x_image.setImageDrawable(getResources().getDrawable(R.drawable.close));
 
-        faceImage = (ImageView)findViewById(R.id.face_image);
-        lpImage = (ImageView)findViewById(R.id.lp_image);
-        vx_faceImage = (ImageView)findViewById(R.id.vx_face);
-        vx_lpImage = (ImageView)findViewById(R.id.vx_pl);
+        faceImage = (ImageView)findViewById(R.id.face_image_main);
+        lpImage = (ImageView)findViewById(R.id.lp_image_main);
+        vx_faceImage = (ImageView)findViewById(R.id.vx_face_main);
+        vx_lpImage = (ImageView)findViewById(R.id.vx_pl_main);
 
 
 //        if(vx_faceImage.equals(v_image) && vx_lpImage.equals(v_image))
@@ -62,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
 //
 //            @Override
 //            public void DataIsInserted() {
+//                Toast.makeText(MainActivity.this, "Added successfully", Toast.LENGTH_SHORT).show();
+//                finish();
+//                return;
 //
 //            }
 //

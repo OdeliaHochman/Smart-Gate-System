@@ -1,7 +1,5 @@
 package com.example.smartgate;
 
-
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,6 +22,8 @@ import com.example.smartgate.firebaseHelper.FirebasePlacesHelper;
 import com.example.smartgate.firebaseHelper.FirebaseUserHelper;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +32,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
+
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
@@ -48,15 +50,22 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
     private String videoUrl,videoId;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authorized_person_details);
         firebaseDatabase = FirebaseDatabase.getInstance();
         IDNumberS = getIntent().getStringExtra("ID Number");// get id from listview
-        setPlaceName();
+       // placeName = getIntent().getStringExtra("Place Name");
+
+        new FirebaseUserHelper().readUser(new FirebaseUserHelper.DataStatusUser() {
+            @Override
+            public void DataIsLoaded(User userHelper, String key) {
+                  adminUser = (User) userHelper;
+                  placeName = userHelper.getName();
+            }
+        });
+
 
         lastName = (TextView) findViewById(R.id.last_name_Adetails);
         firstName = (TextView) findViewById(R.id.first_name_Adetails);
@@ -64,6 +73,7 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
         IDNumber = (TextView) findViewById(R.id.id_Adetails);
         authPersonImage = (ImageView)findViewById(R.id.authperson_image_Adetails);
         LPNumber = (TextView) findViewById(R.id.lp_number_details);
+
 
 
         new FirebaseAuthorizedPersonHelper().readOneAuthPerson(IDNumberS,placeName,new FirebaseAuthorizedPersonHelper.DataStatus() {
@@ -199,7 +209,7 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
                 if(modelVideo != null)
                 {
                    videoUrl = modelVideo.getVideoUrl();
-                    videoId = modelVideo.getId();
+                   videoId = modelVideo.getId();
                 }
 
             }
@@ -262,16 +272,5 @@ public class AuthorizedPersonDetailsActivity extends AppCompatActivity {
                 });
     }
 
-    private void setPlaceName() {
-        new FirebaseUserHelper().readUser(new FirebaseUserHelper.DataStatusUser() {
-            @Override
-            public void DataIsLoaded(User userHelper, String key) {
-                adminUser = (User) userHelper;
-                placeName = adminUser.getName();
-            }
-        });
-
-
-    }
 
 }

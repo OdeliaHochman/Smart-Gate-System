@@ -94,6 +94,8 @@ public class MenuHome extends AppCompatActivity implements View.OnClickListener,
 //            {
 //                Intent intent = new Intent(this, SearchActivity.class);
 //                startActivity(intent);
+//                finish();
+//                return;
 //            }
 //            else
 //            {

@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private FirebaseAuth firebaseAuth;
     private ProgressBar mProgressBar;
     final String activity = " Login";
-    private FirebaseUser autoUser;
+    private FirebaseUser adminUser;
 
 
     @Override
@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Log.d("debug",activity);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        autoUser = firebaseAuth.getCurrentUser();
+        adminUser = firebaseAuth.getCurrentUser();
 
 
 
@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
         // if the user already login go to search activity
-        if(autoUser!=null ) {
+        if(adminUser !=null ) {
             setUser();
         }
 

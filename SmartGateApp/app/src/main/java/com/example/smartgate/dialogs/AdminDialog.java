@@ -41,6 +41,7 @@ public class AdminDialog extends AppCompatDialogFragment {
                       String code = editTCode.getText().toString();
                       listener.applyTexts(code);
 
+
                     }
                 });
 

@@ -71,8 +71,8 @@ public class FirebaseAuthorizedPersonHelper implements Serializable {
 
     public void readOneAuthPerson(String ID,String placeName, final DataStatus dataStatus)
     {
-        System.out.println("placeName:"+placeName);
-        placeName = "Place1";
+          System.out.println("placeName:"+placeName);
+//        placeName = "Place1";
         mReference.child(placeName).child("Authorized People").child(ID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)

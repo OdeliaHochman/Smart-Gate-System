@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/face_image"
+        android:id="@+id/face_image_main"
         android:layout_width="208dp"
         android:layout_height="177dp"
         android:layout_marginStart="48dp"
@@ -36,7 +36,7 @@
         app:srcCompat="@mipmap/logo_foreground" />
 
     <ImageView
-        android:id="@+id/lp_image"
+        android:id="@+id/lp_image_main"
         android:layout_width="208dp"
         android:layout_height="177dp"
         android:layout_marginEnd="50dp"
@@ -46,27 +46,29 @@
         app:srcCompat="@mipmap/logo_foreground" />
 
     <ImageView
-        android:id="@+id/vx_face"
-        android:layout_width="75dp"
-        android:layout_height="74dp"
+        android:id="@+id/vx_face_main"
+        android:layout_width="91dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="112dp"
         android:layout_marginEnd="364dp"
         android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/vx_pl"
-        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintEnd_toStartOf="@+id/vx_pl_main"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/face_image"
+        app:layout_constraintTop_toBottomOf="@+id/face_image_main"
+        app:layout_constraintVertical_bias="0.862"
         tools:srcCompat="@drawable/checked" />
 
     <ImageView
-        android:id="@+id/vx_pl"
+        android:id="@+id/vx_pl_main"
         android:layout_width="75dp"
         android:layout_height="74dp"
         android:layout_marginEnd="112dp"
         android:layout_marginBottom="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lp_image"
+        app:layout_constraintTop_toBottomOf="@+id/lp_image_main"
         app:layout_constraintVertical_bias="1.0"
         tools:srcCompat="@drawable/close" />
 

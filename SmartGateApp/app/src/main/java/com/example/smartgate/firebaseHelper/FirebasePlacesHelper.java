@@ -18,7 +18,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
 
 public class FirebasePlacesHelper
 {
@@ -26,6 +25,7 @@ public class FirebasePlacesHelper
     private DatabaseReference cReference;
     private User user;
     private boolean flag = false;
+
 
 
 
@@ -143,6 +143,7 @@ public class FirebasePlacesHelper
         });
 
     }
+
 
 
 }

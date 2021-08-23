@@ -44,6 +44,7 @@ public class RecyclerView_config implements Serializable {
         private TextView mIDNumber;
         private String key;
         private ImageView personIm;
+        private String placeName;
 
 
 
@@ -81,6 +82,7 @@ public class RecyclerView_config implements Serializable {
                 intent.putExtra("First Name", mFirstName.getText().toString());
                 intent.putExtra("Last Name", mLastName.getText().toString());
                 intent.putExtra("ID Number", mIDNumber.getText().toString());
+                intent.putExtra("Place Name", placeName);
                 mContext.startActivity(intent);
 
             }

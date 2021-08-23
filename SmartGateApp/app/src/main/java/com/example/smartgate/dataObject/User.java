@@ -30,7 +30,13 @@ public class User implements Serializable {
         this.mail = mail;
     }
 
+    public void setAdminCode(String adminCode) {
+        this.adminCode = adminCode;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getName() {
         return name;

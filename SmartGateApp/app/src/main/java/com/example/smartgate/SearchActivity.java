@@ -54,6 +54,8 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         });
 
 
+
+
         if(mySearchView != null){
             mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
