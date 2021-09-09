@@ -83,7 +83,7 @@ public class UpdateVideoActivity extends AppCompatActivity {
         progressDialog.setCanceledOnTouchOutside(false);
 
         cameraPermissions = new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE};
-
+        loadVideoFromFB();
         resultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
@@ -97,7 +97,7 @@ public class UpdateVideoActivity extends AppCompatActivity {
                     }
                 });
 
-        loadVideoFromFB();
+        setVideoToVideoView();
 
         uploadVideoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
