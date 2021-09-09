@@ -20,82 +20,76 @@
         app:srcCompat="@mipmap/logo_foreground" />
 
 
-    <TextView
-        android:id="@+id/username_open"
-        android:layout_width="417dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="430dp"
-        android:layout_marginTop="100dp"
-        android:text="Username"
-        android:textColor="@color/green"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.039" />
-
-    <EditText
-        android:id="@+id/username_editTxt"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="165dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/gray"
-        android:inputType="textNoSuggestions"
-        app:layout_constraintBottom_toTopOf="@+id/password_open"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="@+id/username_open"
-        app:layout_constraintTop_toBottomOf="@+id/username_open"
-        app:layout_constraintVertical_bias="0.333" />
-
-    <TextView
-        android:id="@+id/password_open"
-        android:layout_width="306dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="430dp"
-        android:layout_marginTop="190dp"
-        android:text="Password"
-        android:textColor="@color/green"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.275"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.016" />
-
-    <EditText
-        android:id="@+id/password_editTxt"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:background="@color/gray"
-        android:inputType="textPassword"
+    <LinearLayout
+        android:id="@+id/linearLayout11"
+        android:layout_width="318dp"
+        android:layout_height="230dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="23dp"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/login_button"
-        app:layout_constraintStart_toStartOf="@+id/password_open"
-        app:layout_constraintTop_toBottomOf="@+id/password_open"
-        app:layout_constraintVertical_bias="0.333" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.981">
+
+        <TextView
+            android:id="@+id/username_open"
+            android:layout_width="417dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:paddingBottom="2dp"
+            android:text="Username"
+            android:textColor="@color/green"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/username_editTxt"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:inputType="textNoSuggestions"
+            android:minHeight="48dp"
+            android:paddingTop="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/password_open"
+            app:layout_constraintTop_toBottomOf="@+id/username_open"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/password_open"
+            android:layout_width="306dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Password"
+            android:textColor="@color/green"
+            android:textSize="25dp" />
+
+        <EditText
+            android:id="@+id/password_editTxt"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:paddingBottom="10dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="49dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="28dp"
         android:background="@color/green"
         android:text="Login"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_editTxt" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

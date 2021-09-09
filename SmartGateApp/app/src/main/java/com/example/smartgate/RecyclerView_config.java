@@ -68,7 +68,7 @@ public class RecyclerView_config implements Serializable {
             mFirstName.setText(authorizedPerson.getFirstName());
             mLastName.setText(authorizedPerson.getLastName());
             mIDNumber.setText(IDNumber);
-            Picasso.get().load(authorizedPerson.getUrlImage()).into(personIm);
+            Picasso.get().load(authorizedPerson.getUrlImage()).resize(200,250).into(personIm);
 
         }
 

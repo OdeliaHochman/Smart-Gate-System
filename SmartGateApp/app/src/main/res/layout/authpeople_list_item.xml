@@ -12,9 +12,9 @@
         android:id="@+id/firstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginEnd="11dp"
         android:layout_marginBottom="6dp"
         android:text="First Name"
         android:textSize="20sp"
@@ -36,13 +36,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/firstName"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/id_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="272dp"
         android:layout_marginBottom="5dp"
@@ -50,7 +51,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView_authPeopleList"
         app:layout_constraintTop_toBottomOf="@+id/firstName"
         app:layout_constraintVertical_bias="1.0" />
@@ -59,15 +60,13 @@
         android:id="@+id/imageView_authPeopleList"
         android:layout_width="59dp"
         android:layout_height="56dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="7dp"
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/firstName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4"
+        app:layout_constraintVertical_bias="0.0"
         tools:srcCompat="@tools:sample/avatars" />
 
 

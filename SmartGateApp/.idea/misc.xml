@@ -6,11 +6,18 @@
         <entry key="..\:/Users/odelia/AndroidStudioProjects/Smart Gate System/SmartGateApp/app/src/main/res/layout/activity_add_authorized_person.xml" value="0.2" />
         <entry key="..\:/Users/odelia/AndroidStudioProjects/Smart Gate System/SmartGateApp/app/src/main/res/layout/activity_add_video.xml" value="0.2" />
         <entry key="..\:/Users/odelia/AndroidStudioProjects/Smart Gate System/SmartGateApp/app/src/main/res/layout/activity_authorized_person_details.xml" value="0.2" />
+        <entry key="..\:/Users/odelia/AndroidStudioProjects/Smart Gate System/SmartGateApp/app/src/main/res/layout/activity_drivers_details_verification.xml" value="0.11979166666666667" />
+        <entry key="..\:/Users/odelia/AndroidStudioProjects/Smart Gate System/SmartGateApp/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/odelia/AndroidStudioProjects/Smart Gate System/SmartGateApp/app/src/main/res/layout/activity_main.xml" value="0.16145833333333334" />
         <entry key="..\:/Users/odelia/AndroidStudioProjects/Smart Gate System/SmartGateApp/app/src/main/res/layout/activity_search.xml" value="0.16145833333333334" />
         <entry key="..\:/Users/odelia/AndroidStudioProjects/Smart Gate System/SmartGateApp/app/src/main/res/layout/activity_update_authorized_person.xml" value="0.2" />
         <entry key="..\:/Users/odelia/AndroidStudioProjects/Smart Gate System/SmartGateApp/app/src/main/res/layout/activity_update_video.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/odelia/AndroidStudioProjects/Smart Gate System/SmartGateApp/app/src/main/res/layout/activity_videos.xml" value="0.16145833333333334" />
+        <entry key="..\:/Users/odelia/AndroidStudioProjects/Smart Gate System/SmartGateApp/app/src/main/res/layout/authpeople_list_item.xml" value="0.16145833333333334" />
+        <entry key="..\:/Users/odelia/AndroidStudioProjects/Smart Gate System/SmartGateApp/app/src/main/res/layout/example.xml" value="0.2" />
+        <entry key="..\:/Users/odelia/AndroidStudioProjects/Smart Gate System/SmartGateApp/app/src/main/res/menu/navigation1.xml" value="0.2" />
+        <entry key="..\:/Users/odelia/AndroidStudioProjects/SmartGateApp copy/app/src/main/res/layout/activity_main.xml" value="0.16145833333333334" />
+        <entry key="..\:/Users/odelia/AndroidStudioProjects/SmartGateApp copy/app/src/main/res/menu/navigation1.xml" value="0.1" />
       </map>
     </option>
   </component>

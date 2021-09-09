@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_connect"
+        android:icon="@drawable/exit"
+        android:title="Connect" />
+
+    <item
+        android:id="@+id/navigation_subscribe"
+        android:icon="@drawable/exit"
+        android:title="Subscribe" />
+
+    <item
+        android:id="@+id/navigation_publish"
+        android:icon="@drawable/exit"
+        android:title="Publish" />
+
+    <item
+        android:id="@+id/navigation_clear"
+        android:icon="@drawable/exit"
+        android:title="Clear" />
+
+    <item
+        android:id="@+id/navigation_exit"
+        android:icon="@drawable/exit"
+        android:title="Exit" />
+</menu>
