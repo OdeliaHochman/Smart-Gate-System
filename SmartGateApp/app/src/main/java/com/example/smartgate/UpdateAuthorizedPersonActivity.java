@@ -59,6 +59,7 @@ public class UpdateAuthorizedPersonActivity extends AppCompatActivity {
         btnUpdate = findViewById(R.id.saveUpdate_button);
         mProgressBar= findViewById(R.id.progressBar_update_authpersonID);
         updateVideosBtn = findViewById(R.id.updateVideoBtn);
+        placeName = "Place1";
 
         updateVideosBtn.setOnClickListener(new View.OnClickListener() {
             @Override
