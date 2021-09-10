@@ -25,16 +25,21 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.example.smartgate.dataObject.AuthorizedPerson;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -53,6 +58,7 @@ public class AddVideoActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private ActivityResultLauncher<Intent> resultLauncher;
     private String id_number,placeName;
+    private DatabaseReference referenceAutoPerson;
 
 
 
@@ -167,7 +173,7 @@ public class AddVideoActivity extends AppCompatActivity {
                                         }
                                     });
 
-                            DatabaseReference referenceAutoPerson = FirebaseDatabase.getInstance().getReference("Places").child(placeName)
+                            referenceAutoPerson = FirebaseDatabase.getInstance().getReference("Places").child(placeName)
                                     .child("Authorized People").child(id_number);
                             referenceAutoPerson.child("video_"+id_number)
                                     .setValue(hashMap)
@@ -309,4 +315,5 @@ public class AddVideoActivity extends AppCompatActivity {
         onBackPressed();  // go to previous activity on clicking back button on actionbar
         return super.onSupportNavigateUp();
     }
+
 }
