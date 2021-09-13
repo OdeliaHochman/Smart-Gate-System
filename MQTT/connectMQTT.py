@@ -82,13 +82,10 @@ def on_message(client, userdata, message):
     print("bInOpenGate",bImageFaceArrived)
     print("bDataOn",bDataOn)
     if bImageFaceArrived:
-        #receivedImageFileName = "/tmp/receivedFaceImage.jpg"
-        receivedImageFileName = "C:\\Users\\Owner\\Desktop\\OpenCV_3_License_Plate_Recognition_Python-master\\OpenCV_3_License_Plate_Recognition_Python-master\\faceRecognition\\lfw_filtered\Ariel_Sharon\\Ariel_Sharon_0006.jpg"
-        receivedImageFileName = "C:\\Users\\Owner\\Desktop\\OpenCV_3_License_Plate_Recognition_Python-master\\OpenCV_3_License_Plate_Recognition_Python-master\\faceRecognition\\lfw_filtered\\George_W_Bush\\George_W_Bush_0003.jpg"
+        receivedImageFileName = "/tmp/receivedFaceImage.jpg"
         outImage = "/tmp/receivedFaceImage.jpg"
     elif bImageLpArrived:
-        #receivedImageFileName = "/tmp/receivedLPImage.jpg"
-        receivedImageFileName = "C:\\Users\\Owner\\Desktop\\OpenCV_3_License_Plate_Recognition_Python-master\\OpenCV_3_License_Plate_Recognition_Python-master\\LicPlateImages\\1.png"
+        receivedImageFileName = "/tmp/receivedLPImage.jpg"
         outImage = "/tmp/receivedLPImage.jpg"
     if bImageFaceArrived or bImageLpArrived :
 
