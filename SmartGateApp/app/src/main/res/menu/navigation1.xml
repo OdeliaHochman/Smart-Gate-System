@@ -16,13 +16,4 @@
         android:icon="@drawable/exit"
         android:title="Publish" />
 
-    <item
-        android:id="@+id/navigation_clear"
-        android:icon="@drawable/exit"
-        android:title="Clear" />
-
-    <item
-        android:id="@+id/navigation_exit"
-        android:icon="@drawable/exit"
-        android:title="Exit" />
 </menu>

@@ -27,6 +27,7 @@ public class BottomNavigationViewHelper {
                 item.setShifting(false);
                 //item.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
 
+
                 // set once again checked value, so view will be updated
                 //noinspection RestrictedApi
                 item.setChecked(item.getItemData().isChecked());

@@ -53,15 +53,16 @@
         android:layout_marginEnd="364dp"
         android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/vx_pl_main"
+        app:layout_constraintEnd_toStartOf="@+id/vx_lp_main"
         app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/face_image_main"
         app:layout_constraintVertical_bias="0.862"
-        tools:srcCompat="@drawable/checked" />
+        tools:srcCompat="@drawable/checked"
+        android:visibility="invisible"/>
 
     <ImageView
-        android:id="@+id/vx_pl_main"
+        android:id="@+id/vx_lp_main"
         android:layout_width="75dp"
         android:layout_height="74dp"
         android:layout_marginEnd="112dp"
@@ -70,292 +71,94 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lp_image_main"
         app:layout_constraintVertical_bias="1.0"
-        tools:srcCompat="@drawable/close" />
+        tools:srcCompat="@drawable/close"
+        android:visibility="invisible"/>
 
-    <LinearLayout android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_width="0px"
-        android:layout_height="0px"
-        tools:ignore="MissingConstraints">
-        <requestFocus />
-    </LinearLayout>
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView2"-->
+<!--        android:layout_width="214dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:layout_marginBottom="41dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/cnxStatus"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/lp_image_main"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/face_image_main"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/title_main"-->
+<!--        tools:srcCompat="@tools:sample/avatars" />-->
 
-    <LinearLayout
-        android:id="@+id/msg"
-        android:layout_width="374dp"
-        android:layout_height="520dp"
-        android:ems="10"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/table"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
-
-        <ScrollView
-            android:id="@+id/SCROLLER_ID"
-            android:layout_width="374dp"
-            android:layout_height="56dp"
-            android:fillViewport="true"
-            android:scrollbars="vertical">
-
-            <TextView
-                android:id="@+id/subscribedMsg"
-                android:layout_width="374dp"
-                android:layout_height="520dp"
-                android:layout_weight="1.0"
-                android:gravity="bottom" />
-        </ScrollView>
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="345dp"
-            android:layout_height="520dp"
-            tools:srcCompat="@tools:sample/avatars" />
-    </LinearLayout>
-
-    <TableLayout
-        android:id="@+id/table"
-        android:layout_width="816dp"
-        android:layout_height="146dp"
-        android:background="@android:color/black"
-        android:gravity="center"
-        android:stretchColumns="0,1"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            android:background="#000000">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:gravity="center_vertical"
-                android:text="Connect Status"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cnxStatus"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_column="1"
-                android:layout_centerVertical="true"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:gravity="center_vertical"
-                android:hint="Connect status"
-                android:textStyle="normal" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            android:background="#000000"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:gravity="center_vertical"
-                android:text="Mqtt Broker"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/urlBroker"
-                android:layout_width="200dp"
-                android:layout_height="48dp"
-                android:layout_column="1"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:gravity="center_vertical"
-                android:hint="tcp://iot.eclipse.org:1883"
-                android:text="tcp://10.100.102.24:1883"
-                android:textStyle="normal" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            android:background="#000000"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:gravity="center_vertical"
-                android:text="Mqtt Client UN"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/clientUn"
-                android:layout_width="200dp"
-                android:layout_height="48dp"
-                android:layout_column="1"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:gravity="center_vertical"
-                android:hint="Enter User Name"
-                android:text=""
-                android:textStyle="normal" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            android:background="#000000"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:gravity="center_vertical"
-                android:text="Mqtt Client PW"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/clientPw"
-                android:layout_width="200dp"
-                android:layout_height="48dp"
-                android:layout_column="1"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:gravity="center_vertical"
-                android:hint="Enter Password"
-                android:text=""
-                android:textStyle="normal" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            android:background="#000000"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:gravity="center_vertical"
-                android:text="Subscribe Topic "
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/subTopic"
-                android:layout_width="200dp"
-                android:layout_height="48dp"
-                android:layout_column="1"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:gravity="center_vertical"
-                android:hint="Enter Topic"
-                android:text="VisitorImage"
-                android:textStyle="normal" />
-
-        </TableRow>
+<!--    <LinearLayout android:focusable="true"-->
+<!--        android:focusableInTouchMode="true"-->
+<!--        android:layout_width="0px"-->
+<!--        android:layout_height="0px"-->
+<!--        tools:ignore="MissingConstraints">-->
+<!--        <requestFocus />-->
+<!--    </LinearLayout>-->
 
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            android:background="#000000">
+<!--    <LinearLayout-->
+<!--        android:id="@+id/msg"-->
+<!--        android:layout_width="54dp"-->
+<!--        android:layout_height="239dp"-->
+<!--        android:ems="10"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintHorizontal_bias="0.313"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        tools:layout_editor_absoluteY="26dp">-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:gravity="center_vertical"
-                android:text="Publish Topic "
-                android:textStyle="bold" />
+<!--        <ScrollView-->
+<!--            android:id="@+id/SCROLLER_ID"-->
+<!--            android:layout_width="374dp"-->
+<!--            android:layout_height="56dp"-->
+<!--            android:fillViewport="true"-->
+<!--            android:scrollbars="vertical">-->
 
-            <EditText
-                android:id="@+id/pubTopic"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_column="1"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:gravity="center_vertical"
-                android:hint="Enter Topic"
-                android:text="OpenGate"
-                android:textStyle="normal" />
+    <!--        </ScrollView>-->
 
-        </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            android:background="#000000">
+<!--    </LinearLayout>-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:gravity="center_vertical"
-                android:text="Publish Message "
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/pubMsg"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_column="1"
-                android:layout_margin="1dp"
-                android:background="#FFFFFF"
-                android:gravity="center_vertical"
-                android:hint="Enter Message"
-                android:inputType="textMultiLine"
-                android:scrollbars="vertical"
-                android:singleLine="false"
-                android:text="ON"
-                android:textStyle="normal" />
-        </TableRow>
-
-    </TableLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="816dp"
-        android:layout_height="29dp"
-        android:background="?android:attr/windowBackground"
-        app:labelVisibilityMode="labeled"
+    <TextView
+        android:id="@+id/subscribedMsg"
+        android:layout_width="394dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginBottom="12dp"
+        android:layout_weight="1.0"
+        android:gravity="bottom"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/navigation1" />
+        app:layout_constraintEnd_toStartOf="@+id/cnxStatus"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/vx_face_main"
+        app:layout_constraintTop_toBottomOf="@+id/face_image_main"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/cnxStatus"
+        android:layout_width="301dp"
+        android:layout_height="34dp"
+        android:layout_column="1"
+        android:layout_margin="1dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="95dp"
+        android:background="#FFFFFF"
+        android:hint="Connect status"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lp_image_main"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/face_image_main"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/navigation"-->
+<!--        android:layout_width="816dp"-->
+<!--        android:layout_height="29dp"-->
+<!--        android:background="?android:attr/windowBackground"-->
+<!--        app:labelVisibilityMode="labeled"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:menu="@menu/navigation1" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
