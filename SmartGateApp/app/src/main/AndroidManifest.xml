@@ -16,7 +16,9 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".exampleActivity"
+            android:exported="true" />
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="landscape"
@@ -66,7 +68,7 @@
         <service
             android:name=".MqttMessageService"
             android:enabled="true"
-            android:exported="false"></service>
+            android:exported="false" />
     </application>
 
 </manifest>

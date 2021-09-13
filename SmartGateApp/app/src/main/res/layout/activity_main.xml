@@ -130,7 +130,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/vx_face_main"
         app:layout_constraintTop_toBottomOf="@+id/face_image_main"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/cnxStatus"
@@ -147,7 +148,7 @@
         app:layout_constraintEnd_toStartOf="@+id/lp_image_main"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/face_image_main"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        android:visibility="invisible"/>
 
     <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
 <!--        android:id="@+id/navigation"-->

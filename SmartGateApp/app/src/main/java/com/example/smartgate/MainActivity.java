@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private String topic;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         lpImage = (ImageView)findViewById(R.id.lp_image_main);
         vx_faceImage = (ImageView)findViewById(R.id.vx_face_main);
         vx_lpImage = (ImageView)findViewById(R.id.vx_lp_main);
+
 
         imgViewer = (ImageView) findViewById(R.id.lp_image_main);
 
@@ -190,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
         {
             try {
                 Thread.sleep(10);
-                openFailsDialog();
+                //openFailsDialog();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -388,6 +390,10 @@ public class MainActivity extends AppCompatActivity {
                 client = pahoMqttClient.getMqttClient(getApplicationContext(), urlBroker, clientid, username, password);
                 //Set Mqtt Message Callback
                 mqttCallback();
+                pahoMqttClient.subscribe(client, "FaceFlag", 1);
+                pahoMqttClient.subscribe(client, "LPFlag", 1);
+                pahoMqttClient.subscribe(client, "VisitorImage", 1);
+                pahoMqttClient.subscribe(client, "Visitor", 1);
             }
             catch (MqttException e) {
             }
