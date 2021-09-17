@@ -22,7 +22,7 @@ def InitFB():
     db = firebase.database()
 
     # -----------------------------------------------------------------------------------------------------------------------
-    ## this code is  supposed to get the place name from the FB but it doesn't work...we will need to get the placename from the app..
+    ##  get the place name from the FB 
     # auth = firebase.auth()
     # user = auth.currentUser()
     # name = ""
@@ -31,11 +31,12 @@ def InitFB():
     #     print(name)
     # ----------------------------------------------------------------------------------------------------------------------
 
-    idnumber = ""  # "111111111"  # idnumber from face detection
-    lpnumber = ""  # "MCLRNF1"  # lpnumber from lp detection
-    placename = "Place1"  # we need to retrieve from FB
+    idnumber = ""    # idnumber from face detection
+    lpnumber = ""   # lpnumber from lp detection  
     #id_flag = False
     #lp_flag = False
+    
+    placename = "Place1"
     ref = db.child("Places").child(placename).child("Authorized People").shallow().get()
     print(ref.val())
 
